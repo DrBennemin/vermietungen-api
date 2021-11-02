@@ -7,6 +7,10 @@
 require("./bootstrap");
 
 import Vue from "vue";
+import VueRouter from "vue-router";
+import Routes from "@/js/router/index.js";
+
+Vue.use(VueRouter);
 
 /**
  * The following block of code may be used to automatically register your
@@ -31,4 +35,5 @@ files
 
 const app = new Vue({
     el: "#app",
+    router: Routes,
 });
