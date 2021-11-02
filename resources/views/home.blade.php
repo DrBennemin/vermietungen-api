@@ -2,6 +2,6 @@
 
 @section('content')
 
-<div class="bg-black">HALLO WELT EY</div>
-<test></test>    
+<div class="">HALLO WELT EY</div>
+<test-test></test-test>    
 @endsection
