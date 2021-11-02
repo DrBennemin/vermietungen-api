@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="">HALLO WELT EY</div>
+<div class="">HALLO WELT EY, ich bin laravel</div>
 <test-test></test-test>    
 <app></app>
 @endsection
