@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import HeaderNavigation from "../js/Components/HeaderNavigation.vue";
+import HeaderNavigation from "../Components/HeaderNavigation.vue";
 export default {
     name: "app",
     components: {
