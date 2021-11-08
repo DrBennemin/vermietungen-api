@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header-navigation></header-navigation>
+        <header-navigation class="fixed top-0 w-full"></header-navigation>
         <router-view class="container mx-auto"></router-view>
         <floating-action-button
             class="fixed bottom-48 right-12"
