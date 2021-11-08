@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[814],{814:(e,t,l)=>{l.r(t),l.d(t,{default:()=>n});const s={name:"Storage"};const n=(0,l(900).Z)(s,(function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",{staticClass:"text-xl"},[e._v("the about page")])}),[],!1,null,null,null).exports}}]);

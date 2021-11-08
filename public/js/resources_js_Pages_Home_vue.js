@@ -28,7 +28,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "home",
@@ -125,24 +124,12 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", [_vm._v("Homebase")]),
-    _vm._v(" "),
-    _c("p", [_vm._v("this is my counter:")]),
-    _vm._v(" "),
-    _c("p", [_vm._v("\n        " + _vm._s(_vm.count) + "\n    ")]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        on: {
-          click: function ($event) {
-            return _vm.$store.commit("INCREMENT")
-          },
-        },
-      },
-      [_vm._v("Increment dat count")]
-    ),
+  return _c("div", { staticClass: "container mx-auto" }, [
+    _c("div", { staticClass: "flex justify-center items-center my-32" }, [
+      _c("p", { staticClass: "text-8xl text-primary" }, [
+        _vm._v("\n            " + _vm._s(_vm.count) + "\n        "),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []

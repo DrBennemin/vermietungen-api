@@ -1,11 +1,10 @@
 <template>
-    <div>
-        <div>Homebase</div>
-        <p>this is my counter:</p>
-        <p>
-            {{ count }}
-        </p>
-        <button @click="$store.commit('INCREMENT')">Increment dat count</button>
+    <div class="container mx-auto">
+        <div class="flex justify-center items-center my-32">
+            <p class="text-8xl text-primary">
+                {{ count }}
+            </p>
+        </div>
     </div>
 </template>
 

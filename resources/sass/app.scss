@@ -4,5 +4,16 @@
 /* purgecss end ignore */
 
 @tailwind utilities;
+@layer base {
+    .auth-btn {
+        @apply bg-primary
+        hover:bg-secondary
+        text-white
+        font-bold
+        p-2
+        rounded-lg
+        cursor-pointer;
+    }
+}
 
 @import "_fonts";

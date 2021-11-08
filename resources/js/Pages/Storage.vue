@@ -4,6 +4,6 @@
 
 <script>
 export default {
-    name: "about",
+    name: "Storage",
 };
 </script>
