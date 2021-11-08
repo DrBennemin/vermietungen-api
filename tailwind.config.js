@@ -1,15 +1,19 @@
 module.exports = {
-  purge: [
-    './resources/**/*.blade.php',
-    './resources/**/*.js',
-    './resources/**/*.vue',
-  ],
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
-}
+    purge: [
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
+    ],
+    darkMode: false, // or 'media' or 'class'
+    theme: {
+        extend: {
+            fontFamily: {
+                primary: ["Nunito"],
+            },
+        },
+    },
+    variants: {
+        extend: {},
+    },
+    plugins: [],
+};
