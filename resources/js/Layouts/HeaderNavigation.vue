@@ -1,5 +1,5 @@
 <template>
-    <div class="border-b shadow-lg">
+    <div class="border-b bg-white shadow-lg fixed w-full">
         <div class="container mx-auto">
             <div class="flex justify-between items-center">
                 <img

@@ -6,9 +6,6 @@
             hover:bg-primary hover:text-white
             shadow-2xl
             rounded-full
-            absolute
-            bottom-48
-            right-12
             z-10
         "
         @click="$store.commit('INCREMENT')"

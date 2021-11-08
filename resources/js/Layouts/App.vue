@@ -2,15 +2,17 @@
     <div>
         <header-navigation></header-navigation>
         <router-view class="container mx-auto"></router-view>
-        <floating-action-button></floating-action-button>
+        <floating-action-button
+            class="fixed bottom-48 right-12"
+        ></floating-action-button>
         <footer-section></footer-section>
     </div>
 </template>
 
 <script>
 import FloatingActionButton from "../Components/FloatingActionButton.vue";
-import FooterSection from "../Components/FooterSection.vue";
-import HeaderNavigation from "../Components/HeaderNavigation.vue";
+import FooterSection from "./FooterSection.vue";
+import HeaderNavigation from "./HeaderNavigation.vue";
 export default {
     name: "app",
     components: {
