@@ -1,8 +1,11 @@
 <template>
     <div class="container mx-auto">
-        <div class="flex justify-center items-center my-32">
+        <div class="flex flex-col justify-center items-center my-32">
             <p class="text-8xl text-primary">
-                {{ count }}
+                {{ count }} 
+            </p>
+            <p class="text-primary text-2xl">
+                mal Knöpje gedrucket
             </p>
         </div>
     </div>

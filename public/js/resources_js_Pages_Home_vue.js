@@ -28,6 +28,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "home",
@@ -125,11 +128,19 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container mx-auto" }, [
-    _c("div", { staticClass: "flex justify-center items-center my-32" }, [
-      _c("p", { staticClass: "text-8xl text-primary" }, [
-        _vm._v("\n            " + _vm._s(_vm.count) + "\n        "),
-      ]),
-    ]),
+    _c(
+      "div",
+      { staticClass: "flex flex-col justify-center items-center my-32" },
+      [
+        _c("p", { staticClass: "text-8xl text-primary" }, [
+          _vm._v("\n            " + _vm._s(_vm.count) + " \n        "),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-primary text-2xl" }, [
+          _vm._v("\n            mal Knöpje gedrucket\n        "),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = []

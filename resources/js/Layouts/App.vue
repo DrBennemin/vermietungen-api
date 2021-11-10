@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import FloatingActionButton from "../Components/FloatingActionButton.vue";
+import FloatingActionButton from "../components/FloatingActionButton.vue";
 import FooterSection from "./FooterSection.vue";
 import HeaderNavigation from "./HeaderNavigation.vue";
 export default {
