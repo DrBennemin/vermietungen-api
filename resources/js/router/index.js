@@ -3,12 +3,12 @@ import VueRouter from "vue-router";
 const routes = [
     {
         path: "/",
-        component: () => import("../Pages/Home.vue"),
+        component: () => import("../pages/Home.vue"),
         name: "Home",
     },
     {
         path: "/storage",
-        component: () => import("../Pages/Storage.vue"),
+        component: () => import("../pages/Storage.vue"),
         name: "Storage",
     },
 ];

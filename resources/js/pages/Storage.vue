@@ -15,11 +15,11 @@ export default {
     name: "Storage",
     data: function () {
         return {
-            items: [],
+            items: {},
         };
     },
-    mounted(){
-        this.items.push(this.$store.getters.items)
-    }
+    mounted() {
+        this.items = this.$store.getters.items;
+    },
 };
 </script>
