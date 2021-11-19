@@ -1,8 +1,11 @@
 <template>
     <ul>
         <li class="flex items-center space-x-4 p-4 my-4 shadow-lg rounded-lg">
-            <p v-if="item.in_stock">🟢</p>
-            <p v-else>🔴</p>
+            <div
+                v-if="item.in_stock"
+                class="rounded-full bg-tertiary w-4 h-4"
+            ></div>
+            <div v-else class="rounded-full bg-primary w-4 h-4"></div>
             <div>
                 <p class="font-bold">
                     {{ item.title }}
@@ -23,7 +26,7 @@
 export default {
     props: {
         item: {
-            type: Array,
+            type: Object,
             required: true,
         },
     },

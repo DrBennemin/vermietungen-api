@@ -1,5 +1,5 @@
 module.exports = {
-    mode: 'jit',
+    mode: "jit",
     purge: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
@@ -11,6 +11,7 @@ module.exports = {
             colors: {
                 primary: "#ef5454",
                 secondary: "#00a6c7",
+                tertiary: "#95BF8F",
             },
             fontFamily: {
                 primary: ["Nunito"],

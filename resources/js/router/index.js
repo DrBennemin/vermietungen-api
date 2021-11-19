@@ -1,15 +1,23 @@
 import VueRouter from "vue-router";
+import Home from "../pages/Home.vue";
+import Storage from "../pages/Storage.vue";
+import Item from "../pages/Item.vue";
 
 const routes = [
     {
         path: "/",
-        component: () => import("../pages/Home.vue"),
         name: "Home",
+        component: Home,
     },
     {
         path: "/storage",
-        component: () => import("../pages/Storage.vue"),
         name: "Storage",
+        component: Storage,
+    },
+    {
+        path: "/item/:id",
+        name: "Item",
+        component: Item,
     },
 ];
 

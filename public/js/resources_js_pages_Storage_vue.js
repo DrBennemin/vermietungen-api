@@ -32,6 +32,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     item: {
@@ -243,7 +246,9 @@ var render = function () {
           "flex items-center space-x-4 p-4 my-4 shadow-lg rounded-lg",
       },
       [
-        _vm.item.in_stock ? _c("p", [_vm._v("🟢")]) : _c("p", [_vm._v("🔴")]),
+        _vm.item.in_stock
+          ? _c("div", { staticClass: "rounded-full bg-tertiary w-4 h-4" })
+          : _c("div", { staticClass: "rounded-full bg-primary w-4 h-4" }),
         _vm._v(" "),
         _c("div", [
           _c("p", { staticClass: "font-bold" }, [

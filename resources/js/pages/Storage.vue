@@ -11,8 +11,8 @@
 <script>
 import StorageItems from "../components/StorageItems.vue";
 export default {
-    components: { StorageItems },
     name: "Storage",
+    components: { StorageItems },
     data: function () {
         return {
             items: {},

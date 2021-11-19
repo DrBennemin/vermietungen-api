@@ -1,24 +1,29 @@
 <template>
     <div class="container mx-auto">
         <div class="flex flex-col justify-center items-center my-32">
-            <p class="text-8xl text-primary">
-                {{ count }} 
-            </p>
-            <p class="text-primary text-2xl">
-                mal Knöpje gedrucket
-            </p>
+            <home-card
+                v-for="(itemInStock, key) in itemsInStock"
+                :key="key"
+                :itemsInStock="itemsInStock"
+            ></home-card>
         </div>
     </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import HomeCard from "../components/HomeCard.vue";
 export default {
     name: "home",
-    computed: {
-        ...mapState({
-            count: (state) => state.count,
-        }),
+    components: {
+        HomeCard,
+    },
+    data: function () {
+        return {
+            itemsInStock: {},
+        };
+    },
+    mounted() {
+        this.itemsInStock = this.$store.getters.items;
     },
 };
 </script>

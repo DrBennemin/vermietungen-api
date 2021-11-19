@@ -1,6 +1,6 @@
 export const state = {
     items: [
-            {
+        {
             id: 1,
             title: "Fahrrad",
             description:
@@ -79,7 +79,7 @@ export const state = {
                 "elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget",
             in_stock: true,
             date_return: "2022-05-10",
-        }
+        },
     ],
 };
 
@@ -88,9 +88,14 @@ export const actions = {};
 export const mutations = {};
 
 export const getters = {
-    ['items'](state) {
-        return state.items
-    }
+    ["items"](state) {
+        return state.items;
+    },
+    ["item"](state) {
+        return (itemId) => {
+            return state.items.find((item) => items.id === itemId);
+        };
+    },
 };
 
 export default {
