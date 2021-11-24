@@ -1,7 +1,7 @@
 <template>
-    <div class="py-32 text-8xl">
+    <div v-if="item" class="py-32 text-8xl">
         hallo ich bin ein item
-        <div v-for="(item, key) in items" :key="key">
+        <div>
             {{ item.title }}
         </div>
     </div>
@@ -9,9 +9,10 @@
 
 <script>
 export default {
+    props: ["id"],
     data: function () {
         return {
-            item: {},
+            item: null,
         };
     },
     mounted() {
