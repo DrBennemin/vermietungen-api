@@ -1,8 +1,8 @@
 <template>
-    <div v-if="item" class="py-32 text-8xl">
+    <div class="py-24">
         hallo ich bin ein item
         <div>
-            {{ item.title }}
+            {{ item }}
         </div>
     </div>
 </template>
@@ -12,11 +12,11 @@ export default {
     props: ["id"],
     data: function () {
         return {
-            item: null,
+            item: {},
         };
     },
     mounted() {
-        this.item = this.$store.this.state.items;
+        this.item = this.$store.getters.item;
     },
 };
 </script>

@@ -1,18 +1,17 @@
 <template>
     <div class="container mx-auto py-24">
-        <storage-items
+        <item-card
             v-for="(item, key) in items"
             :key="key"
             :item="item"
-        ></storage-items>
+        ></item-card>
     </div>
 </template>
 
 <script>
-import StorageItems from "../components/StorageItems.vue";
+import ItemCard from "../components/ItemCard.vue";
 export default {
-    name: "Storage",
-    components: { StorageItems },
+    components: { ItemCard },
     data: function () {
         return {
             items: {},

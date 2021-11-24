@@ -1,7 +1,7 @@
 import VueRouter from "vue-router";
 import Home from "../pages/Home.vue";
-import Storage from "../pages/Storage.vue";
-import Item from "../pages/Item.vue";
+import ItemList from "../pages/ItemList.vue";
+import ItemDetails from "../pages/ItemDetails.vue";
 
 const routes = [
     {
@@ -10,15 +10,15 @@ const routes = [
         component: Home,
     },
     {
-        path: "/storage",
-        name: "Storage",
-        component: Storage,
+        path: "/item-list",
+        name: "ItemList",
+        component: ItemList,
     },
     {
         path: "/item/:id",
-        name: "Item",
+        name: "ItemDetails",
         props: true,
-        component: Item,
+        component: ItemDetails,
     },
 ];
 

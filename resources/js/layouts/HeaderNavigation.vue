@@ -17,7 +17,7 @@
                             </router-link>
                         </li>
                         <li class="px-8 hover:text-primary">
-                            <router-link :to="{ name: 'Storage' }">
+                            <router-link :to="{ name: 'ItemList' }">
                                 My Stuff
                             </router-link>
                         </li>

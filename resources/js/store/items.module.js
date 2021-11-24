@@ -92,9 +92,13 @@ export const getters = {
         return state.items;
     },
     ["item"](state) {
-        return (itemId) => {
-            return state.items.find((item) => items.id === itemId);
-        };
+        return state.items.filter((item) => item.id === 1);
+    },
+    ["inStock"](state) {
+        return state.items.filter((item) => item.in_stock);
+    },
+    ["outOfStock"](state) {
+        return state.items.filter((item) => item.in_stock === false);
     },
 };
 
