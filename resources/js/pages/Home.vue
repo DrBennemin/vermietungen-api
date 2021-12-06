@@ -1,6 +1,6 @@
 <template>
     <div class="container mx-auto my-32">
-        <div class="block md:grid grid-cols-2 gap-4">
+        <div class="block md:grid grid-cols-2 gap-4 space-y-8 lg:space-y-0">
             <div
                 class="
                     p-8

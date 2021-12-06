@@ -10,13 +10,10 @@
 <script>
 export default {
     props: ["id"],
-    data: function () {
-        return {
-            item: {},
-        };
-    },
-    mounted() {
-        this.item = this.$store.getters.item;
+    computed: {
+        item: function () {
+            return this.$store.getters.item(this.id);
+        },
     },
 };
 </script>
