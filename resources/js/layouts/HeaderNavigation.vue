@@ -11,14 +11,17 @@
                 </a>
                 <nav>
                     <ul class="flex justify-center uppercase font-bold">
-                        <li class="px-8 hover:text-primary">
-                            <router-link :to="{ name: 'Home' }">
-                                Home
-                            </router-link>
-                        </li>
+                        <router-link :to="{ name: 'Home' }">
+                            <li class="px-8 hover:text-primary">Home</li>
+                        </router-link>
                         <li class="px-8 hover:text-primary">
                             <router-link :to="{ name: 'ItemList' }">
                                 My Stuff
+                            </router-link>
+                        </li>
+                        <li class="px-8 hover:text-primary">
+                            <router-link :to="{ name: 'ItemForm' }">
+                                Add Item
                             </router-link>
                         </li>
                     </ul>

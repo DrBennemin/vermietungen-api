@@ -19,7 +19,7 @@
         display: none;
     }
 
-    .action-btn button:hover ul.flyin {
+    .action-btn button:focus ul.flyin {
         display: block;
     }
 }

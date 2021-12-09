@@ -9,16 +9,13 @@
                 rounded-full
             "
         >
-            <img
-                src="img/plus.svg"
-                alt="plus"
-                class="hover:transform hover:rotate-45"
-            />
+            <img src="img/plus.svg" alt="plus" />
             <ul class="flyin bg-secondary relative bottom-24 right-0">
-                <li>bla</li>
-                <li>bla</li>
-                <li>bla</li>
-                <li>bla</li>
+                <li>
+                    <router-link :to="{ name: 'ItemList' }">
+                        Add Item
+                    </router-link>
+                </li>
             </ul>
         </button>
     </div>
