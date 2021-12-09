@@ -1,8 +1,10 @@
 <template>
     <div class="py-24">
-        hallo ich bin ein item
         <div>
-            {{ item }}
+            {{ item.title }}
+        </div>
+        <div>
+            {{ item.description }}
         </div>
     </div>
 </template>

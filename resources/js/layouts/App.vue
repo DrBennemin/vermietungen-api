@@ -3,7 +3,7 @@
         <header-navigation class="fixed top-0 w-full"></header-navigation>
         <router-view class="container mx-auto"></router-view>
         <floating-action-button
-            class="fixed bottom-48 right-12"
+            class="fixed bottom-48 right-12 z-20"
         ></floating-action-button>
         <footer-section></footer-section>
     </div>

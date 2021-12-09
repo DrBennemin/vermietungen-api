@@ -19,10 +19,6 @@ Route::view('/', 'home')
 // Catch all for my SPA <3
 Route::get('/{any}', function() {
     return view('home');
-});
-// Route::middleware()->group(function () {
-//     Route::view('/', 'app')->name('home');
-//     Route::view('/{any}', 'app')->where('any', '.*');
-// });
+})->where('any', '.*');
 
 
