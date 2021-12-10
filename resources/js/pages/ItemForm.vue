@@ -30,8 +30,8 @@ export default {
         };
     },
     methods: {
-        addItem: function (e) {
-            console.log(e.target.value);
+        addItem() {
+            this.$store.commit("ADD_ITEM");
         },
     },
 };

@@ -83,9 +83,17 @@ export const state = {
     ],
 };
 
-export const actions = {};
+export const actions = {
+    // ["item_added"](context, item) {
+    //     context.commit("ADD_ITEM", item);
+    // },
+};
 
-export const mutations = {};
+export const mutations = {
+    // ["ADD_ITEM"]: (state, item) => {
+    //     state.items.push(item);
+    // },
+};
 
 export const getters = {
     ["items"](state) {

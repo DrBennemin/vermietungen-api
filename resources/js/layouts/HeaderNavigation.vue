@@ -19,9 +19,9 @@
                                 My Stuff
                             </router-link>
                         </li>
-                        <li class="px-8 hover:text-primary">
+                        <li class="px-8 text-secondary hover:text-primary">
                             <router-link :to="{ name: 'ItemForm' }">
-                                Add Item
+                                + Add Item
                             </router-link>
                         </li>
                     </ul>
