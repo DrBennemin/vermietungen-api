@@ -76,6 +76,7 @@ export default {
         ItemsService.getItems()
             .then((response) => {
                 this.items = response.data;
+                this.$store.commit("UPDATE_ITEMS", this.items);
             })
             .catch((error) => {
                 console.log(error);

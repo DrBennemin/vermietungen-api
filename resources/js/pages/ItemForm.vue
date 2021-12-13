@@ -2,37 +2,48 @@
     <div class="container mx-auto py-24">
         <form @submit.prevent="addItem" class="flex flex-col space-y-4">
             <label>Titel</label>
-            <input type="text" id="" v-model="item.title" />
+            <input type="text" id="" v-model="item.title" required />
             <label>Beschreibung</label>
-            <input type="text" id="" v-model="item.description" />
-            <div>
-                <label>Verfügbar</label>
-                <div class="flex space-x-4">
+            <input type="text" id="" v-model="item.description" required />
+            <div class="flex justify-between">
+                <div class="flex flex-col space-x-4">
+                    <label>Verfügbar</label>
+                    <div class="flex space-x-4 items-center">
+                        <input
+                            type="radio"
+                            id="yes"
+                            value="true"
+                            v-model="item.in_stock"
+                            checked
+                        />
+                        <label for="yes">ja</label>
+                        <input
+                            type="radio"
+                            id="no"
+                            value="false"
+                            v-model="item.in_stock"
+                        />
+                        <label for="no">nein</label>
+                    </div>
+                </div>
+
+                <!-- v-if vs. v-show for date_return -> show only if in_stock === false -->
+
+                <div class="w-1/2">
+                    <label>Rückgabedatum</label>
                     <input
-                        type="radio"
-                        id="yes"
-                        value="true"
-                        v-model="item.in_stock"
+                        class="w-full"
+                        type="date"
+                        v-model="item.date_return"
                     />
-                    <label for="yes">ja</label>
-                    <input
-                        type="radio"
-                        id="no"
-                        value="false"
-                        v-model="item.in_stock"
-                    />
-                    <label for="no">nein</label>
                 </div>
             </div>
-            <input
-                v-if="item.in_stock === false"
-                type="date"
-                v-model="item.date_return"
-            />
+
             <button
                 class="
-                    py-1
-                    px-3
+                    py-2
+                    px-4
+                    rounded-lg
                     bg-secondary
                     hover:bg-primary
                     font-bold
@@ -56,7 +67,7 @@ export default {
                 id: "",
                 title: "",
                 description: "",
-                in_stock: "",
+                in_stock: true,
                 date_return: "",
             },
         };
