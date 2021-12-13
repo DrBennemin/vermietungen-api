@@ -1,8 +1,8 @@
 <template>
     <div class="container mx-auto py-24">
-        <form @submit.prevent="addItem">
+        <form @submit.prevent="">
             <label for="Item">Item-Name</label>
-            <input type="text" name="itemTitle" id="" />
+            <input type="text" name="itemTitle" id="" v-model="itemTitle" />
             <button
                 class="
                     py-1
@@ -12,13 +12,14 @@
                     font-bold
                     text-white
                 "
+                @click="addItem"
             >
                 send
             </button>
         </form>
-        <div>
-            {{ itemTitle }}
-        </div>
+        <!-- <div>
+            {{ $store.state.items }}
+        </div> -->
     </div>
 </template>
 
@@ -31,7 +32,8 @@ export default {
     },
     methods: {
         addItem() {
-            this.$store.commit("ADD_ITEM");
+            this.$store.commit("ADD_ITEM", this.itemTitle);
+            this.itemTitle = "";
         },
     },
 };

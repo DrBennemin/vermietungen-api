@@ -90,9 +90,9 @@ export const actions = {
 };
 
 export const mutations = {
-    // ["ADD_ITEM"]: (state, item) => {
-    //     state.items.push(item);
-    // },
+    ["ADD_ITEM"]: (state, item) => {
+        state.items.push(item);
+    },
 };
 
 export const getters = {
