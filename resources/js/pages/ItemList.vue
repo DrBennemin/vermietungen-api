@@ -63,6 +63,7 @@
 
 <script>
 import ItemCard from "../components/ItemCard.vue";
+import ItemsService from "../services/Items.js";
 export default {
     components: { ItemCard },
     data: function () {
@@ -70,8 +71,15 @@ export default {
             items: {},
         };
     },
-    mounted() {
-        this.items = this.$store.getters.items;
+    created() {
+        // this.items = this.$store.getters.items;
+        ItemsService.getItems()
+            .then((response) => {
+                this.items = response.data;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     },
     methods: {
         showInStock: function () {
