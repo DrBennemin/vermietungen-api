@@ -14,7 +14,7 @@
                     Gegenstände auf Lager
                 </h2>
                 <p class="text-8xl text-center font-bold text-red-500">
-                    {{ itemsInStock }}
+                    {{ inStock }}
                 </p>
             </div>
             <div class="p-8 rounded-md shadow-xl border-t-4 border-red-500">
@@ -22,7 +22,7 @@
                     Gegenstände verliehen
                 </h2>
                 <p class="text-8xl text-center font-bold text-red-500">
-                    {{ itemsOutOfStock }}
+                    {{ outOfStock }}
                 </p>
             </div>
         </div>
@@ -33,13 +33,13 @@
 import ItemsService from "../services/Items.js";
 
 export default {
-    data: function () {
-        return {
-            items: [],
-            itemsInStock: null,
-            itemsOutOfStock: null,
-        };
-    },
+    // data: function () {
+    //     return {
+    //         items: [],
+    //         itemsInStock: null,
+    //         itemsOutOfStock: null,
+    //     };
+    // },
     created() {
         ItemsService.getItems()
             .then((response) => {
@@ -52,11 +52,10 @@ export default {
     },
     computed: {
         inStock: function () {
-            return (this.itemsInStock = this.$store.getters.in_stock.length);
+            return this.$store.getters.in_stock.length;
         },
         outOfStock: function () {
-            return (this.itemsOutOfStock =
-                this.$store.getters.out_of_stock.length);
+            return this.$store.getters.out_of_stock.length;
         },
     },
 };
