@@ -22,7 +22,7 @@
                     Gegenstände verliehen
                 </h2>
                 <p class="text-8xl text-center font-bold text-red-500">
-                    {{ outOfStock }}
+                    {{ itemsOutOfStock }}
                 </p>
             </div>
         </div>
@@ -30,16 +30,34 @@
 </template>
 
 <script>
+import ItemsService from "../services/Items.js";
+
 export default {
     data: function () {
         return {
+            items: [],
             itemsInStock: null,
-            outOfStock: null,
+            itemsOutOfStock: null,
         };
     },
-    mounted() {
-        this.itemsInStock = this.$store.getters.inStock.length;
-        this.outOfStock = this.$store.getters.outOfStock.length;
+    created() {
+        ItemsService.getItems()
+            .then((response) => {
+                this.items = response.data;
+                this.$store.commit("UPDATE_ITEMS", this.items);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+    computed: {
+        inStock: function () {
+            return (this.itemsInStock = this.$store.getters.in_stock.length);
+        },
+        outOfStock: function () {
+            return (this.itemsOutOfStock =
+                this.$store.getters.out_of_stock.length);
+        },
     },
 };
 </script>

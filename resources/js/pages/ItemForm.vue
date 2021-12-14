@@ -12,7 +12,7 @@
                         <input
                             type="radio"
                             id="yes"
-                            value="true"
+                            :value="true"
                             v-model="item.in_stock"
                             checked
                         />
@@ -20,7 +20,7 @@
                         <input
                             type="radio"
                             id="no"
-                            value="false"
+                            :value="false"
                             v-model="item.in_stock"
                         />
                         <label for="no">nein</label>
@@ -29,7 +29,7 @@
 
                 <!-- v-if vs. v-show for date_return -> show only if in_stock === false -->
 
-                <div class="w-1/2">
+                <div v-show="!item.in_stock" class="w-1/2">
                     <label>Rückgabedatum</label>
                     <input
                         class="w-full"
@@ -76,11 +76,12 @@ export default {
         addItem() {
             ItemsService.postItem(this.item)
                 .then(() => {
-                    this.$store.commit("ADD_ITEM", this.item);
+                    this.$store.dispatch("add_item", this.item);
                 })
                 .catch((error) => {
                     console.log(error);
                 });
+            this.item = "";
         },
     },
 };

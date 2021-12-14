@@ -90,6 +90,37 @@
       "description": "test",
       "in_stock": "false",
       "date_return": ""
+    },
+    {
+      "id": 14
+    },
+    {
+      "id": 15,
+      "title": "test mit dispatch",
+      "description": "test",
+      "in_stock": true,
+      "date_return": ""
+    },
+    {
+      "id": 16,
+      "title": "Tst mit dispatch and clear form",
+      "description": "test",
+      "in_stock": true,
+      "date_return": ""
+    },
+    {
+      "id": 17,
+      "title": "asdfasfd",
+      "description": "asdfasfd",
+      "in_stock": true,
+      "date_return": ""
+    },
+    {
+      "id": 18,
+      "title": "Lockenstab",
+      "description": "Lockenstab macht locken",
+      "in_stock": "true",
+      "date_return": ""
     }
   ]
 }

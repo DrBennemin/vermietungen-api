@@ -3,9 +3,9 @@ export const state = {
 };
 
 export const actions = {
-    // ["item_added"](context, item) {
-    //     context.commit("ADD_ITEM", item);
-    // },
+    ["add_item"](context, data) {
+        context.commit("ADD_ITEM", data);
+    },
 };
 
 export const mutations = {
@@ -26,10 +26,10 @@ export const getters = {
             return state.items.find((item) => item.id === id);
         };
     },
-    ["inStock"](state) {
+    ["in_stock"](state) {
         return state.items.filter((item) => item.in_stock);
     },
-    ["outOfStock"](state) {
+    ["out_of_stock"](state) {
         return state.items.filter((item) => item.in_stock === false);
     },
 };

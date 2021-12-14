@@ -84,10 +84,10 @@ export default {
     },
     methods: {
         showInStock: function () {
-            this.items = this.$store.getters.inStock;
+            this.items = this.$store.getters.in_stock;
         },
         showOutOfStock: function () {
-            this.items = this.$store.getters.outOfStock;
+            this.items = this.$store.getters.out_of_stock;
         },
         showAll: function () {
             this.items = this.$store.getters.items;
