@@ -2,9 +2,21 @@
     <div class="container mx-auto py-24">
         <form @submit.prevent="addItem" class="flex flex-col space-y-4">
             <label>Titel</label>
-            <input type="text" id="" v-model="item.title" required />
+            <input
+                type="text"
+                id=""
+                v-model="item.title"
+                class="rounded-lg"
+                required
+            />
             <label>Beschreibung</label>
-            <input type="text" id="" v-model="item.description" required />
+            <input
+                type="text"
+                id=""
+                v-model="item.description"
+                class="rounded-lg"
+                required
+            />
             <div class="flex justify-between">
                 <div class="flex flex-col space-x-4">
                     <label>Verfügbar</label>
@@ -13,26 +25,23 @@
                             type="radio"
                             id="yes"
                             :value="true"
-                            v-model="item.in_stock"
-                            checked
+                            v-model="item.available"
                         />
                         <label for="yes">ja</label>
                         <input
                             type="radio"
                             id="no"
                             :value="false"
-                            v-model="item.in_stock"
+                            v-model="item.available"
                         />
                         <label for="no">nein</label>
                     </div>
                 </div>
 
-                <!-- v-if vs. v-show for date_return -> show only if in_stock === false -->
-
-                <div v-show="!item.in_stock" class="w-1/2">
+                <div v-show="!item.available" class="w-1/2">
                     <label>Rückgabedatum</label>
                     <input
-                        class="w-full"
+                        class="w-full rounded-lg"
                         type="date"
                         v-model="item.date_return"
                     />
@@ -58,7 +67,7 @@
 </template>
 
 <script>
-import ItemsService from "../services/Items.js";
+import Api from "../services/api.js";
 
 export default {
     data: function () {
@@ -67,16 +76,16 @@ export default {
                 id: "",
                 title: "",
                 description: "",
-                in_stock: true,
+                available: true,
                 date_return: "",
             },
         };
     },
     methods: {
         addItem() {
-            ItemsService.postItem(this.item)
+            Api.postItem(this.item)
                 .then(() => {
-                    this.$store.dispatch("add_item", this.item);
+                    this.$store.dispatch("item_added", this.item);
                 })
                 .catch((error) => {
                     console.log(error);

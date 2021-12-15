@@ -3,7 +3,7 @@ export const state = {
 };
 
 export const actions = {
-    ["add_item"](context, data) {
+    ["item_added"](context, data) {
         context.commit("ADD_ITEM", data);
     },
 };
@@ -18,19 +18,19 @@ export const mutations = {
 };
 
 export const getters = {
-    ["items"](state) {
+    ["get_items"](state) {
         return state.items;
     },
-    ["item"](state) {
+    ["get_item"](state) {
         return (id) => {
             return state.items.find((item) => item.id === id);
         };
     },
-    ["in_stock"](state) {
-        return state.items.filter((item) => item.in_stock);
+    ["get_available"](state) {
+        return state.items.filter((item) => item.available);
     },
-    ["out_of_stock"](state) {
-        return state.items.filter((item) => item.in_stock === false);
+    ["get_unavailable"](state) {
+        return state.items.filter((item) => !item.available);
     },
 };
 

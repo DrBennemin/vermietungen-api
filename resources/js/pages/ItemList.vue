@@ -1,56 +1,11 @@
 <template>
     <div class="container mx-auto py-24">
         <div>
-            <p>Filter:</p>
-            <div class="flex space-x-4">
-                <div
-                    class="
-                        bg-primary
-                        hover:bg-secondary
-                        cursor-pointer
-                        text-white
-                        font-bold
-                        py-1
-                        px-3
-                        rounded-lg
-                        shadow-xl
-                    "
-                    @click="showInStock"
-                >
-                    in stock
-                </div>
-                <div
-                    class="
-                        bg-primary
-                        hover:bg-secondary
-                        cursor-pointer
-                        text-white
-                        font-bold
-                        py-1
-                        px-3
-                        rounded-lg
-                        shadow-xl
-                    "
-                    @click="showOutOfStock"
-                >
-                    out of stock
-                </div>
-                <div
-                    class="
-                        bg-primary
-                        hover:bg-secondary
-                        cursor-pointer
-                        text-white
-                        font-bold
-                        py-1
-                        px-3
-                        rounded-lg
-                        shadow-xl
-                    "
-                    @click="showAll"
-                >
-                    all items
-                </div>
+            <div class="flex space-x-4 items-center">
+                <p>Filter:</p>
+                <div class="filter-btn" @click="showAvailable">Auf Lager</div>
+                <div class="filter-btn" @click="showUnavailable">Vermietet</div>
+                <div class="filter-btn" @click="showAll">Alle Gegenstände</div>
             </div>
         </div>
         <item-card
@@ -63,7 +18,7 @@
 
 <script>
 import ItemCard from "../components/ItemCard.vue";
-import ItemsService from "../services/Items.js";
+import Api from "../services/api.js";
 export default {
     components: { ItemCard },
     data: function () {
@@ -72,8 +27,7 @@ export default {
         };
     },
     created() {
-        // this.items = this.$store.getters.items;
-        ItemsService.getItems()
+        Api.getItems()
             .then((response) => {
                 this.items = response.data;
                 this.$store.commit("UPDATE_ITEMS", this.items);
@@ -82,12 +36,23 @@ export default {
                 console.log(error);
             });
     },
+    computed: {
+        // showAvailable: function () {
+        //     return this.$store.getters.in_stock;
+        // },
+        // showUnavailable: function () {
+        //     return this.$store.getters.out_of_stock;
+        // },
+        // showAll: function () {
+        //     return this.$store.getters.items;
+        // },
+    },
     methods: {
-        showInStock: function () {
-            this.items = this.$store.getters.in_stock;
+        showAvailable: function () {
+            this.items = this.$store.getters.get_available;
         },
-        showOutOfStock: function () {
-            this.items = this.$store.getters.out_of_stock;
+        showUnavailable: function () {
+            this.items = this.$store.getters.get_unavailable;
         },
         showAll: function () {
             this.items = this.$store.getters.items;

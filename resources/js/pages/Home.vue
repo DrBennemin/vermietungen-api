@@ -1,6 +1,6 @@
 <template>
     <div class="container mx-auto my-32">
-        <div class="block md:grid grid-cols-2 gap-4 space-y-8 lg:space-y-0">
+        <div class="grid grid-cols-2 gap-4 space-y-8 lg:space-y-0">
             <div
                 class="
                     p-8
@@ -30,18 +30,11 @@
 </template>
 
 <script>
-import ItemsService from "../services/Items.js";
+import Api from "../services/api.js";
 
 export default {
-    // data: function () {
-    //     return {
-    //         items: [],
-    //         itemsInStock: null,
-    //         itemsOutOfStock: null,
-    //     };
-    // },
     created() {
-        ItemsService.getItems()
+        Api.getItems()
             .then((response) => {
                 this.items = response.data;
                 this.$store.commit("UPDATE_ITEMS", this.items);
@@ -52,10 +45,10 @@ export default {
     },
     computed: {
         inStock: function () {
-            return this.$store.getters.in_stock.length;
+            return this.$store.getters.get_available.length;
         },
         outOfStock: function () {
-            return this.$store.getters.out_of_stock.length;
+            return this.$store.getters.get_unavailable.length;
         },
     },
 };

@@ -13,6 +13,18 @@
         cursor-pointer;
     }
 
+    .filter-btn {
+        @apply bg-primary
+        hover:bg-secondary
+        cursor-pointer
+        text-white
+        font-bold
+        py-1
+        px-3
+        rounded-lg
+        shadow-xl;
+    }
+
     .action-btn ul.flyin {
         position: absolute;
         padding: 2rem;

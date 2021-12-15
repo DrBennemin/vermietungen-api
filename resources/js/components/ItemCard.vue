@@ -13,7 +13,7 @@
                 "
             >
                 <div
-                    v-if="item.in_stock"
+                    v-if="item.available"
                     class="rounded-full bg-tertiary w-4 h-4"
                 ></div>
                 <div v-else class="rounded-full bg-primary w-4 h-4"></div>
@@ -24,7 +24,7 @@
                     <p>
                         {{ item.description }}
                     </p>
-                    <p v-if="!item.in_stock">
+                    <p v-if="!item.available">
                         Artikel wird am
                         <b>{{ item.date_return }}</b> zurückgegeben.
                     </p>
