@@ -6,7 +6,7 @@
                 type="text"
                 id=""
                 v-model="item.title"
-                class="rounded-lg"
+                class="rounded-lg focus:border-primary focus:ring-primary"
                 required
             />
             <label>Beschreibung</label>
@@ -14,7 +14,7 @@
                 type="text"
                 id=""
                 v-model="item.description"
-                class="rounded-lg"
+                class="rounded-lg focus:border-primary focus:ring-primary"
                 required
             />
             <div class="flex justify-between">
@@ -23,6 +23,7 @@
                     <div class="flex space-x-4 items-center">
                         <input
                             type="radio"
+                            class="text-primary focus:ring-primary"
                             id="yes"
                             :value="true"
                             v-model="item.available"
@@ -30,6 +31,7 @@
                         <label for="yes">ja</label>
                         <input
                             type="radio"
+                            class="text-primary focus:ring-primary"
                             id="no"
                             :value="false"
                             v-model="item.available"
@@ -53,8 +55,8 @@
                     py-2
                     px-4
                     rounded-lg
-                    bg-secondary
-                    hover:bg-primary
+                    hover:bg-secondary
+                    bg-primary
                     font-bold
                     text-white
                 "

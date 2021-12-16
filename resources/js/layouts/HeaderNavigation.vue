@@ -10,16 +10,32 @@
                     />
                 </a>
                 <nav>
-                    <ul class="flex justify-center uppercase font-bold">
+                    <ul class="flex content-center uppercase font-bold">
                         <router-link :to="{ name: 'Home' }">
-                            <li class="px-8 hover:text-primary">Home</li>
+                            <li
+                                class="
+                                    px-8
+                                    py-1
+                                    hover:text-primary
+                                    active:text-secondary
+                                "
+                            >
+                                Start
+                            </li>
                         </router-link>
-                        <li class="px-8 hover:text-primary">
+                        <li
+                            class="
+                                px-8
+                                py-1
+                                hover:text-primary
+                                active:text-secondary
+                            "
+                        >
                             <router-link :to="{ name: 'ItemList' }">
-                                My Stuff
+                                Mein Kram
                             </router-link>
                         </li>
-                        <li class="px-8 text-secondary hover:text-primary">
+                        <li class="add-btn">
                             <router-link :to="{ name: 'ItemForm' }">
                                 + Add Item
                             </router-link>
@@ -27,8 +43,12 @@
                     </ul>
                 </nav>
                 <div class="flex space-x-4">
-                    <a class="auth-btn" href="#"> sign in </a>
-                    <a class="auth-btn" href="#"> register </a>
+                    <img
+                        src="img/notifications.svg"
+                        alt="notification"
+                        class="w-6 h-6"
+                    />
+                    <img src="img/user.svg" alt="user" class="w-6 h-6" />
                 </div>
             </div>
         </div>

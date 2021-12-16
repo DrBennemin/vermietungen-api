@@ -55,7 +55,10 @@ export default {
             this.items = this.$store.getters.get_unavailable;
         },
         showAll: function () {
-            this.items = this.$store.getters.items;
+            this.items = this.$store.getters.get_items;
+        },
+        deleteItems: function () {
+            Api.deleteItem();
         },
     },
 };

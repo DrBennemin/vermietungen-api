@@ -14,7 +14,7 @@ export default {
     props: ["id"],
     computed: {
         item: function () {
-            return this.$store.getters.item(this.id);
+            return this.$store.getters.get_item(this.id);
         },
     },
 };

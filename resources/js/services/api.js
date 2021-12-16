@@ -19,4 +19,7 @@ export default {
     postItem(item) {
         return apiClient.post("/items", item);
     },
+    deleteItem(id) {
+        return apiClient.delete("/items", +id);
+    },
 };
