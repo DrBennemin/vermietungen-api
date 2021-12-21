@@ -1,5 +1,5 @@
 <template>
-    <div class="border-b bg-white shadow-lg">
+    <div class="border-b bg-white shadow-lg z-10">
         <div class="container mx-auto">
             <div class="flex justify-between items-center">
                 <a href="/">

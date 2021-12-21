@@ -120,10 +120,17 @@
       "date_return": "2021-12-23"
     },
     {
-      "id": 24,
+      "id": 1000,
       "title": "asdf",
       "description": "asdf",
       "available": false,
+      "date_return": ""
+    },
+    {
+      "id": 1001,
+      "title": "1000?",
+      "description": "hallo",
+      "available": true,
       "date_return": ""
     }
   ]
