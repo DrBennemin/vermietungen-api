@@ -22,4 +22,7 @@ export default {
     deleteItem(id) {
         return apiClient.delete("/items/" + id);
     },
+    updateItem(id, item) {
+        return apiClient.put("/items/" + id, item);
+    },
 };

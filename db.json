@@ -1,25 +1,7 @@
 {
   "items": [
     {
-      "id": 1,
-      "title": "Fahrrad",
-      "description": "justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices",
-      "available": true,
-      "date_return": "2022-02-13"
-    },
-    {
-      "id": 4,
-      "title": "Stuhlhussen",
-      "description": "ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor",
-      "available": false,
-      "date_return": "2022-07-23"
-    },
-    {
-      "id": 5,
-      "title": "Inline-Skater",
-      "description": "phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac",
-      "available": false,
-      "date_return": "2021-12-12"
+      "id": 1
     },
     {
       "id": 6,
@@ -69,6 +51,9 @@
       "description": "hallö",
       "available": false,
       "date_return": "2021-12-17"
+    },
+    {
+      "id": 23
     }
   ]
 }

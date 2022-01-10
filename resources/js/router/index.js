@@ -3,7 +3,7 @@ import Home from "../pages/Home.vue";
 import ItemList from "../pages/ItemList.vue";
 import ItemDetails from "../pages/ItemDetails.vue";
 import ItemAdd from "../pages/ItemAdd.vue";
-import ItemEdit from "../pages/ItemEdit.vue";
+import ItemUpdate from "../pages/ItemUpdate.vue";
 
 const routes = [
     {
@@ -22,10 +22,10 @@ const routes = [
         component: ItemAdd,
     },
     {
-        path: "/item-edit/:id",
-        name: "ItemEdit",
+        path: "/items/:id/update",
+        name: "ItemUpdate",
         props: true,
-        component: ItemEdit,
+        component: ItemUpdate,
     },
     {
         path: "/items/:id",

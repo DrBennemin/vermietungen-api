@@ -44,7 +44,7 @@
                         hover:text-primary
                         cursor-pointer
                     "
-                    :to="{ name: 'ItemEdit', params: { id: item.id } }"
+                    :to="{ name: 'ItemUpdate', params: { id: item.id } }"
                 >
                     <img
                         src="img/edit-pencil.svg"

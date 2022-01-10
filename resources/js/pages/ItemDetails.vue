@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <div class="col-span-2 space-y-4">
+            <div class="col-span-2 space-y-4" :item="item">
                 <div class="flex space-x-4 items-center">
                     <div
                         v-if="item.available"
@@ -57,12 +57,39 @@
 </template>
 
 <script>
+import Api from "../services/api";
+
 export default {
     props: ["id"],
-    computed: {
-        item: function () {
-            return this.$store.getters.get_item(this.id);
-        },
+    data: function () {
+        return {
+            item: {},
+        };
     },
+    // computed: {
+    //     item: function () {
+    //         return this.$store.getters.get_item(this.id);
+    //     },
+    // },
+    created() {
+        Api.getItem(this.id)
+            .then((response) => {
+                this.item = response.data;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },
+    // methods: {
+    //     loadItem: function () {
+    //         Api.getItem(this.id)
+    //             .then((response) => {
+    //                 this.item = response.data;
+    //             })
+    //             .catch((error) => {
+    //                 console.log(error);
+    //             });
+    //     },
+    // },
 };
 </script>

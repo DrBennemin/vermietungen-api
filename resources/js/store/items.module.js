@@ -11,6 +11,9 @@ export const actions = {
     ["item_deleted"](context, data) {
         context.commit("DELETE_ITEM", data);
     },
+    ["item_updated"](context, data) {
+        context.commit("UPDATE_ITEM", data);
+    },
 };
 
 export const mutations = {
@@ -25,6 +28,12 @@ export const mutations = {
     },
     ["UPDATE_ITEMS"]: (state, items) => {
         state.items = items;
+    },
+    ["UPDATE_ITEM"]: (state, data) => {
+        let itemIndex = state.items.findIndex((item) => item.id === data.id);
+        if (itemIndex === -1) return;
+        const updatedItem = { ...state.items[itemIndex], ...data };
+        Vue.set(state.items, itemIndex, updatedItem);
     },
 };
 
