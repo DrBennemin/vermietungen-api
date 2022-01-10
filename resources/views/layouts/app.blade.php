@@ -8,7 +8,7 @@
 </head>
 <body class="antialiased font-primary">
     <div id="app">
-        <main>
+        <main class="bg-gray-100">
             @yield('content')
         </main>
     </div>

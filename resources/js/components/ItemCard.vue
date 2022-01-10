@@ -24,7 +24,10 @@
                 </div>
             </li>
         </router-link>
-        <context-menu class="cursor-pointer my-auto"></context-menu>
+        <context-menu
+            class="cursor-pointer my-auto"
+            :id="item.id"
+        ></context-menu>
     </ul>
 </template>
 
@@ -37,11 +40,6 @@ export default {
         item: {
             type: Object,
             required: true,
-        },
-    },
-    methods: {
-        deleteItem: function () {
-            this.$emit("something");
         },
     },
 };

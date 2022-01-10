@@ -20,6 +20,6 @@ export default {
         return apiClient.post("/items", item);
     },
     deleteItem(id) {
-        return apiClient.delete("/items", +id);
+        return apiClient.delete("/items/" + id);
     },
 };

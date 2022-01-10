@@ -7,9 +7,6 @@
         @apply relative
         flex
         p-4
-        my-4
-        shadow-lg
-        rounded-lg
         w-full
         justify-between
         px-6;
@@ -23,6 +20,11 @@
         p-2
         rounded-lg
         cursor-pointer;
+    }
+
+    .activeFilter {
+        @apply bg-white
+        border-l-4 border-red-500;
     }
 
     .filter-btn {

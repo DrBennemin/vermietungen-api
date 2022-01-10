@@ -6,18 +6,61 @@
             class="w-8 opacity-75"
         />
         <ul
-            class="absolute shadow-xl rounded-lg p-8 bg-white z-10"
+            class="
+                absolute
+                shadow-xl
+                rounded-lg
+                px-8
+                py-4
+                space-y-4
+                bg-white
+                z-10
+            "
             v-if="contextMenuOpen"
         >
-            <li class="flex items-center space-x-4">
-                <img src="img/trash.svg" alt="delete" class="w-4" />
+            <li
+                class="
+                    flex
+                    items-center
+                    space-x-4
+                    hover:text-primary
+                    cursor-pointer
+                "
+                @click="deleteItem"
+            >
+                <img
+                    src="img/trash.svg"
+                    alt="delete"
+                    class="w-4 hover:text-primary"
+                />
                 <span> Löschen </span>
+            </li>
+            <li>
+                <router-link
+                    class="
+                        flex
+                        items-center
+                        space-x-4
+                        hover:text-primary
+                        cursor-pointer
+                    "
+                    :to="{ name: 'ItemEdit', params: { id: item.id } }"
+                >
+                    <img
+                        src="img/edit-pencil.svg"
+                        alt="delete"
+                        class="w-4 fill-current hover:text-primary"
+                    />
+                    <span> Bearbeiten </span>
+                </router-link>
             </li>
         </ul>
     </button>
 </template>
 
 <script>
+import Api from "../services/api.js";
+
 export default {
     props: ["id"],
     computed: {
@@ -33,7 +76,15 @@ export default {
     methods: {
         toggleContextMenu: function () {
             this.contextMenuOpen = !this.contextMenuOpen;
-            console.log(this.item.id);
+        },
+        deleteItem() {
+            Api.deleteItem(this.id)
+                .then(() => {
+                    this.$store.dispatch("item_deleted", this.id);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         },
     },
 };

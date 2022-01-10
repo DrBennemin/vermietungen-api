@@ -2,7 +2,8 @@ import VueRouter from "vue-router";
 import Home from "../pages/Home.vue";
 import ItemList from "../pages/ItemList.vue";
 import ItemDetails from "../pages/ItemDetails.vue";
-import ItemForm from "../pages/ItemForm.vue";
+import ItemAdd from "../pages/ItemAdd.vue";
+import ItemEdit from "../pages/ItemEdit.vue";
 
 const routes = [
     {
@@ -16,12 +17,18 @@ const routes = [
         component: ItemList,
     },
     {
-        path: "/item-form",
-        name: "ItemForm",
-        component: ItemForm,
+        path: "/item-add",
+        name: "ItemAdd",
+        component: ItemAdd,
     },
     {
-        path: "/item/:id",
+        path: "/item-edit/:id",
+        name: "ItemEdit",
+        props: true,
+        component: ItemEdit,
+    },
+    {
+        path: "/items/:id",
         name: "ItemDetails",
         props: true,
         component: ItemDetails,
