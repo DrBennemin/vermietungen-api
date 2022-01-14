@@ -88,6 +88,7 @@ export default {
             Api.postItem(this.item)
                 .then(() => {
                     this.$store.dispatch("item_added", this.item);
+                    this.$router.push({ name: "Home" });
                 })
                 .catch((error) => {
                     console.log(error);

@@ -45,17 +45,19 @@
                                 </button>
                             </span>
                             <input
-                                type="search"
                                 class="
                                     py-2
-                                    text-white
                                     bg-gray-200
                                     rounded-lg
                                     pl-10
                                     border-none
-                                    focus:border-primary focus:ring-primary
+                                    focus:border-primary
+                                    focus:ring-primary
+                                    focus:bg-white
                                 "
                                 placeholder="SUCHE"
+                                v-model="query"
+                                :change="printQuery"
                             />
                         </div>
                     </form>
@@ -115,6 +117,15 @@
 
 <script>
 export default {
-    name: "navbar",
+    data: function () {
+        return {
+            query: "",
+        };
+    },
+    methods: {
+        printQuery: function () {
+            console.log(this.query);
+        },
+    },
 };
 </script>

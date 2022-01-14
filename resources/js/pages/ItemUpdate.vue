@@ -65,8 +65,6 @@
 </template>
 
 <script>
-import Api from "../services/api";
-
 export default {
     props: ["id"],
     data: function () {
@@ -80,7 +78,8 @@ export default {
     //     },
     // },
     created() {
-        Api.getItem(this.id)
+        axios
+            .get("/items/" + this.id)
             .then((response) => {
                 this.item = response.data;
             })
@@ -90,16 +89,12 @@ export default {
     },
     methods: {
         updateItem() {
-            console.log(this.item);
-            Api.updateItem(this.id)
-                .then((response) => {
-                    console.log(response);
-                    this.item = response.data;
-                    this.$store.dispatch("item_updated", this.item);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
+            axios.put("http://localhost:3000/items/" + this.id, {
+                title: this.item.title,
+                description: this.item.description,
+                available: this.item.available,
+                date_return: this.item.date_return,
+            });
         },
     },
 };

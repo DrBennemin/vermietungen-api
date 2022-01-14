@@ -3,25 +3,30 @@
         <div class="grid grid-cols-4 gap-4">
             <div class="col-span-2">
                 <img
-                    src="https://m.media-amazon.com/images/I/61Kl33srABS._AC_SL1204_.jpg"
+                    src="https://via.placeholder.com/350x150"
                     alt="bild"
-                    class="w-1/2 my-12"
+                    class="my-12 p-1 border rounded-lg shadow-xl"
                 />
-                <div class="flex space-x-4">
+                <div class="flex space-x-1">
                     <img
-                        src="https://m.media-amazon.com/images/I/61Kl33srABS._AC_SL1204_.jpg"
+                        src="https://via.placeholder.com/150x150"
                         alt="bild"
-                        class="w-1/4 p-4 border rounded-lg shadow-xl"
+                        class="w-1/4 p-1 border rounded-lg shadow-xl"
                     />
                     <img
-                        src="https://m.media-amazon.com/images/I/61Kl33srABS._AC_SL1204_.jpg"
+                        src="https://via.placeholder.com/150x150"
                         alt="bild"
-                        class="w-1/4 p-4 border rounded-lg shadow-xl"
+                        class="w-1/4 p-1 border rounded-lg shadow-xl"
                     />
                     <img
-                        src="https://m.media-amazon.com/images/I/61Kl33srABS._AC_SL1204_.jpg"
+                        src="https://via.placeholder.com/150x150"
                         alt="bild"
-                        class="w-1/4 p-4 border rounded-lg shadow-xl"
+                        class="w-1/4 p-1 border rounded-lg shadow-xl"
+                    />
+                    <img
+                        src="https://via.placeholder.com/150x150"
+                        alt="bild"
+                        class="w-1/4 p-1 border rounded-lg shadow-xl"
                     />
                 </div>
             </div>
