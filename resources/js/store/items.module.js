@@ -14,6 +14,9 @@ export const actions = {
     ["item_updated"](context, data) {
         context.commit("UPDATE_ITEM", data);
     },
+    ["items_updated"](context, data) {
+        context.commit("UPDATE_ITEMS", data);
+    },
 };
 
 export const mutations = {

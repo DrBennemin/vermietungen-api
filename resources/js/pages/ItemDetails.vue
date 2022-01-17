@@ -62,8 +62,6 @@
 </template>
 
 <script>
-import Api from "../services/api";
-
 export default {
     props: ["id"],
     data: function () {
@@ -71,13 +69,9 @@ export default {
             item: {},
         };
     },
-    // computed: {
-    //     item: function () {
-    //         return this.$store.getters.get_item(this.id);
-    //     },
-    // },
     created() {
-        Api.getItem(this.id)
+        axios
+            .get("/items/" + this.id)
             .then((response) => {
                 this.item = response.data;
             })
@@ -85,16 +79,5 @@ export default {
                 console.log(error);
             });
     },
-    // methods: {
-    //     loadItem: function () {
-    //         Api.getItem(this.id)
-    //             .then((response) => {
-    //                 this.item = response.data;
-    //             })
-    //             .catch((error) => {
-    //                 console.log(error);
-    //             });
-    //     },
-    // },
 };
 </script>

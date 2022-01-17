@@ -59,8 +59,6 @@
 </template>
 
 <script>
-import Api from "../services/api.js";
-
 export default {
     props: ["id"],
     computed: {
@@ -78,7 +76,8 @@ export default {
             this.contextMenuOpen = !this.contextMenuOpen;
         },
         deleteItem() {
-            Api.deleteItem(this.id)
+            axios
+                .delete("/items/" + this.id)
                 .then(() => {
                     this.$store.dispatch("item_deleted", this.id);
                 })

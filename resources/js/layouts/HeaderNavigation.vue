@@ -83,18 +83,6 @@
                                 Start
                             </li>
                         </router-link>
-                        <li
-                            class="
-                                px-8
-                                py-1
-                                hover:text-primary
-                                active:text-secondary
-                            "
-                        >
-                            <router-link :to="{ name: 'ItemList' }">
-                                Mein Kram
-                            </router-link>
-                        </li>
                         <li class="add-btn">
                             <router-link :to="{ name: 'ItemAdd' }">
                                 + Add Item

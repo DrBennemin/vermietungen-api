@@ -36,7 +36,7 @@
                     </div>
                 </div>
 
-                <div class="w-1/2">
+                <div class="w-1/2" v-if="!item.available">
                     <label>Rückgabedatum</label>
                     <input
                         class="w-full rounded-lg"
@@ -89,12 +89,19 @@ export default {
     },
     methods: {
         updateItem() {
-            axios.put("http://localhost:3000/items/" + this.id, {
-                title: this.item.title,
-                description: this.item.description,
-                available: this.item.available,
-                date_return: this.item.date_return,
-            });
+            axios
+                .put("items/" + this.id, {
+                    title: this.item.title,
+                    description: this.item.description,
+                    available: this.item.available,
+                    date_return: this.item.date_return,
+                })
+                .then(() => {
+                    this.$store.dispatch("item_updated", this.item);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         },
     },
 };

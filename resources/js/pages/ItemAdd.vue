@@ -62,15 +62,13 @@
                 "
                 type="submit"
             >
-                send
+                speichern
             </button>
         </form>
     </div>
 </template>
 
 <script>
-import Api from "../services/api.js";
-
 export default {
     data: function () {
         return {
@@ -85,7 +83,8 @@ export default {
     },
     methods: {
         addItem() {
-            Api.postItem(this.item)
+            axios
+                .post("/items", this.item)
                 .then(() => {
                     this.$store.dispatch("item_added", this.item);
                     this.$router.push({ name: "Home" });
