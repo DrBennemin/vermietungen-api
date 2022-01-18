@@ -1,13 +1,6 @@
 {
   "items": [
     {
-      "title": "Thermomix",
-      "description": "so n Scheiss brauchen wir nicht, ganz sicher!",
-      "available": true,
-      "date_return": "",
-      "id": 11
-    },
-    {
       "id": 21,
       "title": "Wäscheständer",
       "description": "mit Klammern",

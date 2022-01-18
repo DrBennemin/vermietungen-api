@@ -62,4 +62,14 @@
         rounded-lg
         shadow-xl;
     }
+
+    .fab-btn {
+        @apply bg-primary hover:bg-secondary cursor-pointer p-8 rounded-full shadow-xl;
+    }
+    .fab-btn:hover img {
+        @apply origin-center transform rotate-45;
+    }
+    .fab-content {
+        @apply hidden cursor-pointer p-8 rounded-md shadow-xl border-2;
+    }
 }
