@@ -2,28 +2,19 @@
     <div class="container mx-auto py-24">
         <div class="grid grid-cols-4 gap-12 py-12">
             <div class="col-span-1 space-y-4">
-                <div
-                    class="flex justify-between py-2 px-4 cursor-pointer rounded-r-lg"
-                    :class="{ activeFilter: availableTabActive }"
-                    @click="showAvailable">
+                <div class="flex justify-between py-2 px-4 cursor-pointer rounded-r-lg" @click="showAvailable">
                     <h2 class="font-bold text-lg text-gray-500">Gegenstände auf Lager</h2>
                     <p class="bg-white w-8 h-8 rounded-full text-gray-500">
                         {{ inStock }}
                     </p>
                 </div>
-                <div
-                    class="flex justify-between py-2 px-4 cursor-pointer"
-                    :class="{ activeFilter: notAvailableTabActive }"
-                    @click="showUnavailable">
+                <div class="flex justify-between py-2 px-4 cursor-pointer" @click="showUnavailable">
                     <h2 class="font-bold text-lg text-gray-500">Gegenstände verliehen</h2>
                     <p class="bg-white w-8 h-8 rounded-full text-gray-500">
                         {{ outOfStock }}
                     </p>
                 </div>
-                <div
-                    class="flex justify-between py-2 px-4 cursor-pointer"
-                    :class="{ activeFilter: allTabActive }"
-                    @click="showAll">
+                <div class="flex justify-between py-2 px-4 cursor-pointer" :class="activeFilter" @click="showAll">
                     <h2 class="font-bold text-lg text-gray-500">Gegenstände insgesamt</h2>
                     <p class="bg-white w-8 h-8 rounded-full text-gray-500">
                         {{ stock }}
@@ -47,14 +38,12 @@ export default {
     data: function () {
         return {
             items: {},
-            availableTabActive: true,
-            notAvailableTabActive: false,
-            allTabActive: false,
+            isActive: false,
         }
     },
     created() {
         axios
-            .get('/items')
+            .get('/items?_sort=id&_order=desc')
             .then((response) => {
                 this.items = response.data
                 this.$store.dispatch('items_updated', this.items)
@@ -80,7 +69,6 @@ export default {
         },
         showUnavailable: function () {
             this.items = this.$store.getters.get_unavailable
-            this.notAvailableTabActive = true
         },
         showAll: function () {
             this.items = this.$store.getters.get_items

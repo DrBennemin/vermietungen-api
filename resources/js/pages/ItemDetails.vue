@@ -3,40 +3,32 @@
         <div class="grid grid-cols-4 gap-4">
             <div class="col-span-2">
                 <img
-                    src="https://via.placeholder.com/350x150"
+                    src="https://via.placeholder.com/350x250"
                     alt="bild"
-                    class="my-12 p-1 border rounded-lg shadow-xl"
-                />
+                    class="my-12 p-1 border rounded-lg shadow-xl" />
                 <div class="flex space-x-1">
                     <img
                         src="https://via.placeholder.com/150x150"
                         alt="bild"
-                        class="w-1/4 p-1 border rounded-lg shadow-xl"
-                    />
+                        class="w-1/4 p-1 border rounded-lg shadow-xl" />
                     <img
                         src="https://via.placeholder.com/150x150"
                         alt="bild"
-                        class="w-1/4 p-1 border rounded-lg shadow-xl"
-                    />
+                        class="w-1/4 p-1 border rounded-lg shadow-xl" />
                     <img
                         src="https://via.placeholder.com/150x150"
                         alt="bild"
-                        class="w-1/4 p-1 border rounded-lg shadow-xl"
-                    />
+                        class="w-1/4 p-1 border rounded-lg shadow-xl" />
                     <img
                         src="https://via.placeholder.com/150x150"
                         alt="bild"
-                        class="w-1/4 p-1 border rounded-lg shadow-xl"
-                    />
+                        class="w-1/4 p-1 border rounded-lg shadow-xl" />
                 </div>
             </div>
 
             <div class="col-span-2 space-y-4" :item="item">
                 <div class="flex space-x-4 items-center">
-                    <div
-                        v-if="item.available"
-                        class="rounded-full bg-tertiary w-4 h-4"
-                    ></div>
+                    <div v-if="item.available" class="rounded-full bg-tertiary w-4 h-4"></div>
                     <div v-else class="rounded-full bg-primary w-4 h-4"></div>
                     <h2 class="text-4xl font-bold">
                         {{ item.title }}
@@ -55,7 +47,9 @@
                         <p class="text-xl">6/10</p>
                     </div>
                 </div>
-                <button class="primary-btn">jetzt verleihen</button>
+                <router-link :to="{ name: 'OrderAdd', params: { id: item.id } }" class="primary-btn my-4"
+                    >jetzt verleihen</router-link
+                >
             </div>
         </div>
     </div>
@@ -63,21 +57,21 @@
 
 <script>
 export default {
-    props: ["id"],
+    props: ['id'],
     data: function () {
         return {
             item: {},
-        };
+        }
     },
     created() {
         axios
-            .get("/items/" + this.id)
+            .get('/items/' + this.id)
             .then((response) => {
-                this.item = response.data;
+                this.item = response.data
             })
             .catch((error) => {
-                console.log(error);
-            });
+                console.log(error)
+            })
     },
-};
+}
 </script>

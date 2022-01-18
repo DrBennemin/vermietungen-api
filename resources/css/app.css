@@ -24,7 +24,7 @@
 
     .activeFilter {
         @apply bg-white
-        border-l-4 border-red-500;
+        border-l-4 border-red-500 rounded-r-md;
     }
 
     .filter-btn {

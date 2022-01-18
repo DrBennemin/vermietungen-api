@@ -6,15 +6,13 @@
                 type="text"
                 class="rounded-lg focus:border-primary focus:ring-primary"
                 required
-                v-model="item.title"
-            />
+                v-model="item.title" />
             <label>Beschreibung</label>
             <input
                 type="text"
                 class="rounded-lg focus:border-primary focus:ring-primary"
                 required
-                v-model="item.description"
-            />
+                v-model="item.description" />
             <div class="flex justify-between">
                 <div class="flex flex-col space-x-4">
                     <label>Verfügbar</label>
@@ -23,41 +21,24 @@
                             type="radio"
                             class="text-primary focus:ring-primary"
                             :value="true"
-                            v-model="item.available"
-                        />
+                            v-model="item.available" />
                         <label for="yes">ja</label>
                         <input
                             type="radio"
                             class="text-primary focus:ring-primary"
                             :value="false"
-                            v-model="item.available"
-                        />
+                            v-model="item.available" />
                         <label for="no">nein</label>
                     </div>
                 </div>
 
                 <div class="w-1/2" v-if="!item.available">
                     <label>Rückgabedatum</label>
-                    <input
-                        class="w-full rounded-lg"
-                        type="date"
-                        v-model="item.date_return"
-                    />
+                    <input class="w-full rounded-lg" type="date" v-model="item.date_return" />
                 </div>
             </div>
 
-            <button
-                class="
-                    py-2
-                    px-4
-                    rounded-lg
-                    hover:bg-secondary
-                    bg-primary
-                    font-bold
-                    text-white
-                "
-                type="submit"
-            >
+            <button class="py-2 px-4 rounded-lg hover:bg-secondary bg-primary font-bold text-white" type="submit">
                 speichern
             </button>
         </form>
@@ -66,11 +47,11 @@
 
 <script>
 export default {
-    props: ["id"],
+    props: ['id'],
     data: function () {
         return {
             item: {},
-        };
+        }
     },
     // computed: {
     //     item: function () {
@@ -79,30 +60,30 @@ export default {
     // },
     created() {
         axios
-            .get("/items/" + this.id)
+            .get('/items/' + this.id)
             .then((response) => {
-                this.item = response.data;
+                this.item = response.data
             })
             .catch((error) => {
-                console.log(error);
-            });
+                console.log(error)
+            })
     },
     methods: {
         updateItem() {
             axios
-                .put("items/" + this.id, {
+                .put('items/' + this.id, {
                     title: this.item.title,
                     description: this.item.description,
                     available: this.item.available,
                     date_return: this.item.date_return,
                 })
                 .then(() => {
-                    this.$store.dispatch("item_updated", this.item);
+                    this.$store.dispatch('item_updated', this.item)
                 })
                 .catch((error) => {
-                    console.log(error);
-                });
+                    console.log(error)
+                })
         },
     },
-};
+}
 </script>
