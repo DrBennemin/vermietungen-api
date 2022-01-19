@@ -12,33 +12,6 @@
         px-6;
     }
 
-    .auth-btn {
-        @apply bg-primary
-        hover:bg-secondary
-        text-white
-        font-bold
-        p-2
-        rounded-lg
-        cursor-pointer;
-    }
-
-    .activeFilter {
-        @apply bg-white
-        border-l-4 border-red-500 rounded-r-md;
-    }
-
-    .filter-btn {
-        @apply bg-primary
-        hover:bg-secondary
-        cursor-pointer
-        text-white
-        font-bold
-        py-1
-        px-3
-        rounded-lg
-        shadow-xl;
-    }
-
     .primary-btn {
         @apply bg-primary
         hover:bg-secondary
@@ -51,20 +24,8 @@
         shadow-xl;
     }
 
-    .add-btn {
-        @apply bg-primary
-        hover:bg-secondary
-        cursor-pointer
-        text-white
-        font-bold
-        py-1
-        px-3
-        rounded-lg
-        shadow-xl;
-    }
-
     .fab-btn {
-        @apply bg-primary hover:bg-secondary cursor-pointer p-8 rounded-full shadow-xl;
+        @apply bg-primary hover:bg-secondary cursor-pointer p-4 rounded-full shadow-xl;
     }
     .fab-btn:hover img {
         @apply origin-center transform rotate-45;

@@ -4,6 +4,7 @@ import ItemDetails from '../pages/ItemDetails.vue'
 import ItemAdd from '../pages/ItemAdd.vue'
 import ItemUpdate from '../pages/ItemUpdate.vue'
 import OrderAdd from '../pages/OrderAdd.vue'
+import SearchResults from '../pages/SearchResults.vue'
 
 const routes = [
     {
@@ -33,6 +34,12 @@ const routes = [
         name: 'OrderAdd',
         props: true,
         component: OrderAdd,
+    },
+    {
+        path: '/search',
+        name: 'SearchResults',
+        props: true,
+        component: SearchResults,
     },
 ]
 

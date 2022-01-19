@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div class="flex justify-center">
+        <div class="ml-6">
             <img src="/img/user.svg" alt="user" class="w-6 m-6" />
         </div>
     </div>
