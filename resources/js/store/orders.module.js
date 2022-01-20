@@ -26,7 +26,7 @@ export const mutations = {
     ['DELETE_ORDER']: (state, orderId) => {
         let orderIndex = state.orders.findIndex((order) => order.id === orderId)
         if (orderIndex === -1) return
-        const tmporders = state.orders.splice(orderIndex, 1)
+        const tmpOrders = state.orders.splice(orderIndex, 1)
         Vue.set(state.orders, tmpOrders)
     },
     ['UPDATE_ORDERS']: (state, orders) => {
@@ -36,7 +36,7 @@ export const mutations = {
         let orderIndex = state.orders.findIndex((order) => order.id === data.id)
         if (orderIndex === -1) return
         const updatedOrder = { ...state.orders[orderIndex], ...data }
-        Vue.set(state.orders, orderIndex, updatedorder)
+        Vue.set(state.orders, orderIndex, updatedOrder)
     },
 }
 

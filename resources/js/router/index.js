@@ -1,16 +1,18 @@
 import VueRouter from 'vue-router'
-import Home from '../pages/Home.vue'
+import Inventory from '../pages/Inventory.vue'
 import ItemDetails from '../pages/ItemDetails.vue'
 import ItemAdd from '../pages/ItemAdd.vue'
 import ItemUpdate from '../pages/ItemUpdate.vue'
 import OrderAdd from '../pages/OrderAdd.vue'
+import Orders from '../pages/Orders.vue'
+import OrderDetails from '../pages/OrderDetails.vue'
 import SearchResults from '../pages/SearchResults.vue'
 
 const routes = [
     {
         path: '/',
-        name: 'Home',
-        component: Home,
+        name: 'Inventory',
+        component: Inventory,
     },
     {
         path: '/item-add',
@@ -34,6 +36,18 @@ const routes = [
         name: 'OrderAdd',
         props: true,
         component: OrderAdd,
+    },
+    {
+        path: '/orders',
+        name: 'Orders',
+        props: true,
+        component: Orders,
+    },
+    {
+        path: '/orders:id',
+        name: 'OrderDetails',
+        props: true,
+        component: OrderDetails,
     },
     {
         path: '/search',

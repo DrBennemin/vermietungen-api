@@ -25,6 +25,9 @@ export default {
         item: function () {
             return this.$store.getters.get_item(this.id)
         },
+        order: function () {
+            return this.$store.getters.get_order(this.id)
+        },
     },
     data() {
         return {
@@ -40,6 +43,16 @@ export default {
                 .delete('/items/' + this.id)
                 .then(() => {
                     this.$store.dispatch('item_deleted', this.id)
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        },
+        deleteOrder() {
+            axios
+                .delete('/orders/' + this.id)
+                .then(() => {
+                    this.$store.dispatch('order_deleted', this.id)
                 })
                 .catch((error) => {
                     console.log(error)

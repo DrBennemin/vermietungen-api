@@ -62,7 +62,7 @@ export default {
                 .post('/orders', this.order)
                 .then(() => {
                     this.$store.dispatch('order_added', this.order)
-                    this.$router.push({ name: 'Home' })
+                    this.$router.push({ name: 'Order' })
                 })
                 .catch((error) => {
                     console.log(error)

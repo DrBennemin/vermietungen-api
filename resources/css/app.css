@@ -12,6 +12,15 @@
         px-6;
     }
 
+    .order-card {
+        @apply relative
+        flex
+        p-4
+        w-full
+        justify-between
+        px-6;
+    }
+
     .primary-btn {
         @apply bg-primary
         hover:bg-secondary
@@ -22,6 +31,10 @@
         px-4
         rounded-lg
         shadow-xl;
+    }
+
+    .menu-sidebar-active {
+        @apply border-r-4 border-r-primary font-bold;
     }
 
     .fab-btn {

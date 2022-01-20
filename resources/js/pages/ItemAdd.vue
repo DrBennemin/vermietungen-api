@@ -62,7 +62,7 @@ export default {
                 .post('/items', this.item)
                 .then(() => {
                     this.$store.dispatch('item_added', this.item)
-                    this.$router.push({ name: 'Home' })
+                    this.$router.push({ name: 'Inventory' })
                 })
                 .catch((error) => {
                     console.log(error)
