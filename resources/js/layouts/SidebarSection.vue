@@ -4,7 +4,7 @@
             <router-link :to="{ name: 'Inventory' }">
                 <div
                     class="flex justify-between px-6 py-4 border-b-2 cursor-pointer space-x-12"
-                    :class="{ 'menu-sidebar-active': isActive }"
+                    :class="{ 'menu-sidebar-active': isInventoryActive }"
                     @click="
                         showAll()
                         updateActiveState()
@@ -18,7 +18,7 @@
             <router-link :to="{ name: 'Orders' }">
                 <div
                     class="flex justify-between px-6 py-4 border-b-2 cursor-pointer space-x-12"
-                    :class="{ 'menu-sidebar-active': isActive }"
+                    :class="{ 'menu-sidebar-active': isOrdersActive }"
                     @click="
                         showAll()
                         updateActiveState()
@@ -42,7 +42,8 @@ export default {
     data: function () {
         return {
             items: {},
-            isActive: false,
+            isInventoryActive: false,
+            isOrdersActive: false,
         }
     },
     computed: {
@@ -70,7 +71,10 @@ export default {
             this.items = this.$store.getters.get_items
         },
         updateActiveState: function () {
-            this.isActive = !this.isActive
+            this.isInventoryActive = !this.isInventoryActive
+        },
+        updateActiveState: function () {
+            this.isOrdersActive = !this.isOrdersActive
         },
     },
 }

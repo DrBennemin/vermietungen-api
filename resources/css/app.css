@@ -40,10 +40,11 @@
     .fab-btn {
         @apply bg-primary hover:bg-secondary cursor-pointer p-4 rounded-full shadow-xl;
     }
+
     .fab-btn:hover img {
         @apply origin-center transform rotate-45;
     }
     .fab-content {
-        @apply hidden cursor-pointer p-8 rounded-md shadow-xl border-2;
+        @apply hidden bg-white  cursor-pointer p-8 rounded-md shadow-xl border-2 space-y-4;
     }
 }

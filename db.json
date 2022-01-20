@@ -1,22 +1,22 @@
 {
   "items": [
     {
-      "id": 21,
       "title": "Wäscheständer",
-      "description": "mit Klammern",
+      "description": "Ohne Klammern.",
       "available": false,
-      "date_return": "2021-12-17"
+      "date_return": "2021-12-17",
+      "id": 21
     },
     {
       "title": "Heizpilz 150 L",
-      "description": "Geiler Pilz für die Terasse an kühlen Winternächten",
+      "description": "Geiler Pilz für die Terasse an kühlen Winternächten, oder an lauen Sommertagen.",
       "available": true,
       "date_return": "2022-01-20",
       "id": 23
     },
     {
       "title": "Mikrofonständer",
-      "description": "teleskopierbar",
+      "description": "teleskopierbar und man kann auch die Halbzoll Klemmen anschrauben.",
       "available": true,
       "date_return": "2021-12-17",
       "id": 24

@@ -79,6 +79,7 @@ export default {
                 })
                 .then(() => {
                     this.$store.dispatch('item_updated', this.item)
+                    this.$router.push({ name: 'Inventory' })
                 })
                 .catch((error) => {
                     console.log(error)
