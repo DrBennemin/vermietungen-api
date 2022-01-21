@@ -1,14 +1,8 @@
 <template>
     <ul class="item-card">
-        <router-link
-            class="flex-grow"
-            :to="{ name: 'ItemDetails', params: { id: item.id } }"
-        >
+        <router-link class="flex-grow" :to="{ name: 'ItemDetails', params: { id: item.id } }">
             <li class="flex space-x-6 items-center">
-                <div
-                    v-if="item.available"
-                    class="rounded-full bg-tertiary w-4 h-4"
-                ></div>
+                <div v-if="item.available" class="rounded-full bg-tertiary w-4 h-4"></div>
                 <div v-else class="rounded-full bg-primary w-4 h-4"></div>
                 <div>
                     <p class="font-bold">
@@ -24,23 +18,20 @@
                 </div>
             </li>
         </router-link>
-        <context-menu
-            class="cursor-pointer my-auto"
-            :id="item.id"
-        ></context-menu>
+        <context-menu-item class="cursor-pointer my-auto" :id="item.id"></context-menu-item>
     </ul>
 </template>
 
 <script>
-import ContextMenu from "./ContextMenu.vue";
+import ContextMenuItem from './ContextMenuItem.vue'
 
 export default {
-    components: { ContextMenu },
+    components: { ContextMenuItem },
     props: {
         item: {
             type: Object,
             required: true,
         },
     },
-};
+}
 </script>

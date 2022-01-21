@@ -14,15 +14,15 @@
                 </div>
             </li>
         </router-link>
-        <context-menu class="cursor-pointer my-auto" :id="order.id"></context-menu>
+        <context-menu-order class="cursor-pointer my-auto" :id="order.id"></context-menu-order>
     </ul>
 </template>
 
 <script>
-import ContextMenu from './ContextMenu.vue'
+import ContextMenuOrder from './ContextMenuOrder.vue'
 
 export default {
-    components: { ContextMenu },
+    components: { ContextMenuOrder },
     props: {
         order: {
             type: Object,

@@ -8,13 +8,6 @@
       "id": 21
     },
     {
-      "title": "Heizpilz 150 L",
-      "description": "Geiler Pilz für die Terasse an kühlen Winternächten, oder an lauen Sommertagen.",
-      "available": true,
-      "date_return": "2022-01-20",
-      "id": 23
-    },
-    {
       "title": "Mikrofonständer",
       "description": "teleskopierbar und man kann auch die Halbzoll Klemmen anschrauben.",
       "available": true,
@@ -26,6 +19,12 @@
       "description": "Geiles Teil von Elgato",
       "available": true,
       "id": 25
+    },
+    {
+      "title": "Heizpilz ",
+      "description": "f. Gas-Flaschen bis 125 l · Ideal für die nächste Garten-Party",
+      "available": true,
+      "id": 26
     }
   ],
   "orders": [
@@ -37,8 +36,7 @@
     },
     {
       "first_name": "Andre",
-      "last_name": "Nattler",
-      "item_id": "Mikrofonständer",
+      "last_name": "Hetkämper",
       "id": 2
     },
     {
@@ -46,18 +44,6 @@
       "first_name": "Benjamin",
       "last_name": "Knopf",
       "id": 3
-    },
-    {
-      "item_id": "21 Wäscheständer",
-      "first_name": "Gurkenkopf",
-      "last_name": "hallo",
-      "id": 4
-    },
-    {
-      "first_name": "Ich ",
-      "last_name": "Bin ",
-      "item_id": "24 Mikrofonständer",
-      "id": 5
     },
     {
       "first_name": "Jürgen",

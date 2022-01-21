@@ -6,6 +6,7 @@ import ItemUpdate from '../pages/ItemUpdate.vue'
 import OrderAdd from '../pages/OrderAdd.vue'
 import Orders from '../pages/Orders.vue'
 import OrderDetails from '../pages/OrderDetails.vue'
+import OrderUpdate from '../pages/OrderUpdate.vue'
 import SearchResults from '../pages/SearchResults.vue'
 
 const routes = [
@@ -44,10 +45,16 @@ const routes = [
         component: Orders,
     },
     {
-        path: '/orders:id',
+        path: '/orders/:id',
         name: 'OrderDetails',
         props: true,
         component: OrderDetails,
+    },
+    {
+        path: '/orders/:id/update',
+        name: 'OrderUpdate',
+        props: true,
+        component: OrderUpdate,
     },
     {
         path: '/search',
