@@ -1,4 +1,5 @@
 import VueRouter from 'vue-router'
+import Home from '../pages/Home.vue'
 import Inventory from '../pages/Inventory.vue'
 import ItemDetails from '../pages/ItemDetails.vue'
 import ItemAdd from '../pages/ItemAdd.vue'
@@ -12,6 +13,11 @@ import SearchResults from '../pages/SearchResults.vue'
 const routes = [
     {
         path: '/',
+        name: 'Home',
+        component: Home,
+    },
+    {
+        path: '/inventory',
         name: 'Inventory',
         component: Inventory,
     },
@@ -67,6 +73,7 @@ const routes = [
 const router = new VueRouter({
     mode: 'history',
     routes,
+    linkActiveClass: 'active',
 })
 
 export default router

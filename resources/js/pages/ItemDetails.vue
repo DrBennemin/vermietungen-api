@@ -63,15 +63,21 @@ export default {
             item: {},
         }
     },
+    //api über method aufrufen!
     created() {
-        axios
-            .get('/items/' + this.id)
-            .then((response) => {
-                this.item = response.data
-            })
-            .catch((error) => {
-                console.log(error)
-            })
+        this.loadItems()
+    },
+    methods: {
+        loadItems: function () {
+            axios
+                .get('/items/' + this.id)
+                .then((response) => {
+                    this.item = response.data
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        },
     },
 }
 </script>

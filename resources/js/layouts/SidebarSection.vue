@@ -2,79 +2,77 @@
     <div class="flex flex-col justify-between border-r bg-white shadow-md space-y-4 pt-24">
         <div>
             <router-link :to="{ name: 'Inventory' }">
-                <div
-                    class="flex justify-between px-6 py-4 border-b-2 cursor-pointer space-x-12"
-                    :class="{ 'menu-sidebar-active': isInventoryActive }"
-                    @click="
-                        showAll()
-                        updateActiveState()
-                    ">
+                <div class="flex justify-between items-center px-6 py-4 border-b-2 cursor-pointer space-x-12">
                     <h2 class="text-lg">Inventar</h2>
-                    <p class="bg-primary py-1 px-4 text-white font-bold rounded-full">
-                        {{ stock }}
-                    </p>
+                    <div class="bg-primary p-2 text-white text-xs rounded-full">
+                        {{ items.length }}
+                    </div>
                 </div>
             </router-link>
             <router-link :to="{ name: 'Orders' }">
-                <div
-                    class="flex justify-between px-6 py-4 border-b-2 cursor-pointer space-x-12"
-                    :class="{ 'menu-sidebar-active': isOrdersActive }"
-                    @click="
-                        showAll()
-                        updateActiveState()
-                    ">
+                <div class="flex justify-between items-center px-6 py-4 border-b-2 cursor-pointer space-x-12">
                     <h2 class="text-lg">Vorgänge</h2>
-                    <p class="bg-primary py-1 px-4 text-white font-bold rounded-full">
-                        {{ orders }}
-                    </p>
+                    <div class="bg-primary p-2 text-white text-xs rounded-full">
+                        {{ orders.length }}
+                    </div>
                 </div>
             </router-link>
         </div>
 
-        <div class="ml-6">
-            <img src="/img/user.svg" alt="user" class="w-6 m-6" />
+        <div class="mt-12 border-t-2">
+            <img
+                src="https://ca.slack-edge.com/TTHG21AH3-U017CGPPY6L-5aaa3aab049a-512"
+                alt="user"
+                class="w-12 h-12 my-4 ml-6 rounded-full border-4 border-tertiary cursor-pointer" />
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    data: function () {
+    data() {
         return {
             items: {},
-            isInventoryActive: false,
-            isOrdersActive: false,
+            orders: {},
         }
     },
     computed: {
-        inStock: function () {
-            return this.$store.getters.get_available.length
-        },
-        outOfStock: function () {
-            return this.$store.getters.get_unavailable.length
-        },
-        stock: function () {
-            return this.$store.getters.get_items.length
-        },
-        orders: function () {
-            return this.$store.getters.get_orders.length
-        },
+        // items() {
+        //     return this.$store.getters.get_items
+        // },
+        // orders() {
+        //     return this.$store.getters.get_orders
+        // },
+    },
+    created() {
+        // if (this.items && this.orders == null) {
+        this.loadItems()
+        this.loadOrders()
+        // } else {
+        console.log('leck mich anne socken')
+        // }
     },
     methods: {
-        showAvailable: function () {
-            this.items = this.$store.getters.get_available
+        loadItems: function () {
+            axios
+                .get('/items')
+                .then((response) => {
+                    this.items = response.data
+                    this.$store.dispatch('items_loaded', this.items)
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         },
-        showUnavailable: function () {
-            this.items = this.$store.getters.get_unavailable
-        },
-        showAll: function () {
-            this.items = this.$store.getters.get_items
-        },
-        updateActiveState: function () {
-            this.isInventoryActive = !this.isInventoryActive
-        },
-        updateActiveState: function () {
-            this.isOrdersActive = !this.isOrdersActive
+        loadOrders: function () {
+            axios
+                .get('/orders')
+                .then((response) => {
+                    this.orders = response.data
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         },
     },
 }

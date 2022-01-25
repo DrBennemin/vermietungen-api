@@ -64,14 +64,19 @@ export default {
         }
     },
     created() {
-        axios
-            .get('/orders/' + this.id)
-            .then((response) => {
-                this.order = response.data
-            })
-            .catch((error) => {
-                console.log(error)
-            })
+        this.loadOrders()
+    },
+    methods: {
+        loadOrders: function () {
+            axios
+                .get('/orders/' + this.id)
+                .then((response) => {
+                    this.order = response.data
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        },
     },
 }
 </script>

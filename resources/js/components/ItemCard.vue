@@ -2,8 +2,10 @@
     <ul class="item-card">
         <router-link class="flex-grow" :to="{ name: 'ItemDetails', params: { id: item.id } }">
             <li class="flex space-x-6 items-center">
-                <div v-if="item.available" class="rounded-full bg-tertiary w-4 h-4"></div>
-                <div v-else class="rounded-full bg-primary w-4 h-4"></div>
+                <div class="min-w-max">
+                    <div v-if="item.available" class="rounded-full bg-tertiary w-4 h-4"></div>
+                    <div v-else class="rounded-full bg-primary w-4 h-4"></div>
+                </div>
                 <div>
                     <p class="font-bold">
                         {{ item.title }}
@@ -18,7 +20,7 @@
                 </div>
             </li>
         </router-link>
-        <context-menu-item class="cursor-pointer my-auto" :id="item.id"></context-menu-item>
+        <context-menu-item class="cursor-pointer my-auto min-w-max" :id="item.id"></context-menu-item>
     </ul>
 </template>
 

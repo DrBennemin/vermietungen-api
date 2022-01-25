@@ -1,14 +1,15 @@
 <template>
     <div class="container mx-auto py-24">
-        <form @submit.prevent="searchQuiry">
-            <input type="text" v-model="quiry" />
-        </form>
         <div>
-            {{ quiry }}
+            <h2>Suchergebnisse</h2>
         </div>
-        <div class="bg-white rounded-lg shadow-md mx-4">
+        <div v-if="items.length" class="bg-white rounded-lg shadow-md mx-4">
             <item-card v-for="(item, key) in items" :key="key" :item="item" class="border-b-2"></item-card>
         </div>
+        <!-- <div v-if="orders.length" class="bg-white rounded-lg shadow-md mx-4">
+            <item-card v-for="(order, key) in orders" :key="key" :order="order" class="border-b-2"></item-card>
+        </div>
+        <div v-else>Deine Suchanfrage hat keine Ergebnisse geliefert...</div> -->
     </div>
 </template>
 
@@ -16,16 +17,17 @@
 import ItemCard from '../components/ItemCard.vue'
 
 export default {
+    props: ['searchTerm'],
     components: { ItemCard },
     data() {
         return {
             items: {},
-            quiry: '',
+            // orders: {},
         }
     },
     created() {
         axios
-            .get('/items?_sort=id&_order=desc')
+            .get('/items?q=' + this.$route.params.searchTerm)
             .then((response) => {
                 this.items = response.data
                 this.$store.dispatch('items_updated', this.items)
@@ -33,19 +35,14 @@ export default {
             .catch((error) => {
                 console.log(error)
             })
-    },
-    methods: {
-        searchQuiry: function () {
-            axios
-                .get('/items?q=' + this.quiry)
-                .then((response) => {
-                    this.items = response.data
-                    this.$store.dispatch('items_updated', this.items)
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
-        },
+        // .get('/orders?q=' + this.$route.params.searchTerm)
+        // .then((response) => {
+        //     this.orders = response.data
+        //     this.$store.dispatch('orders_updated', this.orders)
+        // })
+        // .catch((error) => {
+        //     console.log(error)
+        // })
     },
 }
 </script>

@@ -28,7 +28,7 @@ import ItemCard from '../components/ItemCard.vue'
 
 export default {
     components: { ItemCard },
-    data: function () {
+    data() {
         return {
             items: {},
         }
@@ -45,16 +45,16 @@ export default {
             })
     },
     methods: {
-        showAvailable: function () {
+        showAvailable() {
             this.items = this.$store.getters.get_available
         },
-        showUnavailable: function () {
+        showUnavailable() {
             this.items = this.$store.getters.get_unavailable
         },
-        showAll: function () {
+        showAll() {
             this.items = this.$store.getters.get_items
         },
-        deleteItems: function () {
+        deleteItems() {
             axios.delete('/items/' + id)
         },
     },

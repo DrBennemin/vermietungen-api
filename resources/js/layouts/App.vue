@@ -6,11 +6,13 @@
             <router-view class="flex-grow h-screen"></router-view>
         </div>
         <floating-action-button class="relative"></floating-action-button>
+        <test-modal></test-modal>
     </div>
 </template>
 
 <script>
 import FloatingActionButton from '../components/FloatingActionButton.vue'
+import TestModal from '../components/TestModal.vue'
 import HeaderNavigation from './HeaderNavigation.vue'
 import SidebarSection from './SidebarSection.vue'
 export default {
@@ -19,6 +21,7 @@ export default {
         HeaderNavigation,
         SidebarSection,
         FloatingActionButton,
+        TestModal,
     },
 }
 </script>
