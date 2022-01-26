@@ -21,9 +21,20 @@
         px-6;
     }
 
-    .primary-btn {
+    .btn-primary {
         @apply bg-primary
         hover:bg-secondary
+        cursor-pointer
+        text-white
+        font-bold
+        py-2
+        px-4
+        rounded-lg
+        shadow-xl;
+    }
+    .btn-secondary {
+        @apply bg-secondary
+        hover:bg-primary
         cursor-pointer
         text-white
         font-bold
