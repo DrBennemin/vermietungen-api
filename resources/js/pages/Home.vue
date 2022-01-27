@@ -6,9 +6,14 @@
         <p>heute sollte Artikel ... zurückgegeben werden</p>
         <p>heute sollte Artikel ... zurückgegeben werden</p>
         <p>Artikel ... ist aktuell zur reinigung</p>
+        <test-slot></test-slot>
     </div>
 </template>
 
 <script>
-export default {}
+import TestSlot from '../components/TestSlot.vue'
+
+export default {
+    components: { TestSlot },
+}
 </script>
