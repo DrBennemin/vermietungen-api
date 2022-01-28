@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import OrderCard from '../components/OrderCard.vue'
+import OrderCard from '@/components/orders/OrderCard.vue'
 export default {
     components: { OrderCard },
-    data: function () {
+    data() {
         return {
             orders: {},
         }
@@ -27,7 +27,7 @@ export default {
             })
     },
     methods: {
-        deleteOrders: function () {
+        deleteOrders() {
             axios.delete('/orders/' + id)
         },
     },

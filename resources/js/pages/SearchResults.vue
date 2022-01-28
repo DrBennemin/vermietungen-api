@@ -14,10 +14,15 @@
 </template>
 
 <script>
-import ItemCard from '../components/ItemCard.vue'
+import ItemCard from '@/components/items/ItemCard.vue'
 
 export default {
-    props: ['searchTerm'],
+    props: {
+        searchTerm: {
+            type: String,
+            required: true,
+        },
+    },
     components: { ItemCard },
     data() {
         return {

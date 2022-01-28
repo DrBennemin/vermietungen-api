@@ -51,7 +51,7 @@
 
 <script>
 export default {
-    data: function () {
+    data() {
         return {
             item: {},
         }
@@ -62,7 +62,7 @@ export default {
                 .post('/items', this.item)
                 .then(() => {
                     this.$store.dispatch('item_added', this.item)
-                    this.$router.push({ name: 'Inventory' })
+                    this.$router.push({ name: 'Items' })
                 })
                 .catch((error) => {
                     console.log(error)

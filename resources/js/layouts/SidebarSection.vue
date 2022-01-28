@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col justify-between border-r bg-white shadow-md space-y-4 pt-24">
         <div>
-            <router-link :to="{ name: 'Inventory' }">
+            <router-link :to="{ name: 'Items' }">
                 <div class="flex justify-between items-center px-6 py-4 border-b-2 cursor-pointer space-x-12">
                     <h2 class="text-lg">Inventar</h2>
                     <div class="bg-primary p-2 text-white text-xs rounded-full">
@@ -49,7 +49,6 @@ export default {
         this.loadItems()
         this.loadOrders()
         // } else {
-        console.log('leck mich anne socken')
         // }
     },
     methods: {

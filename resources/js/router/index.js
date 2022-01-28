@@ -1,13 +1,13 @@
 import VueRouter from 'vue-router'
 import Home from '../pages/Home.vue'
-import Inventory from '../pages/Inventory.vue'
-import ItemDetails from '../pages/ItemDetails.vue'
-import ItemAdd from '../pages/ItemAdd.vue'
-import ItemUpdate from '../pages/ItemUpdate.vue'
-import OrderAdd from '../pages/OrderAdd.vue'
-import Orders from '../pages/Orders.vue'
-import OrderDetails from '../pages/OrderDetails.vue'
-import OrderUpdate from '../pages/OrderUpdate.vue'
+import Items from '../pages/items/Items.vue'
+import ItemDetails from '../pages/items/ItemDetails.vue'
+import ItemAdd from '../pages/items/ItemAdd.vue'
+import ItemUpdate from '../pages/items/ItemUpdate.vue'
+import OrderAdd from '../pages/orders/OrderAdd.vue'
+import Orders from '../pages/orders/Orders.vue'
+import OrderDetails from '../pages/orders/OrderDetails.vue'
+import OrderUpdate from '../pages/orders/OrderUpdate.vue'
 import SearchResults from '../pages/SearchResults.vue'
 
 const routes = [
@@ -17,9 +17,9 @@ const routes = [
         component: Home,
     },
     {
-        path: '/inventory',
-        name: 'Inventory',
-        component: Inventory,
+        path: '/items',
+        name: 'Items',
+        component: Items,
     },
     {
         path: '/item-add',

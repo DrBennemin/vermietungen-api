@@ -20,9 +20,9 @@
 
 <script>
 export default {
-    data: function () {
+    data() {
         return {
-            showModal: true,
+            showModal: false,
         }
     },
     props: {
@@ -42,7 +42,7 @@ export default {
         },
     },
     methods: {
-        toggleModal: function () {
+        toggleModal() {
             this.showModal = !this.showModal
         },
     },

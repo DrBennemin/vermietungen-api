@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import FloatingActionButton from '../components/FloatingActionButton.vue'
-import ModalCard from '../components/ModalCard.vue'
+import FloatingActionButton from '@/components/FloatingActionButton.vue'
+import ModalCard from '@/components/ModalCard.vue'
 import HeaderNavigation from './HeaderNavigation.vue'
 import SidebarSection from './SidebarSection.vue'
 export default {

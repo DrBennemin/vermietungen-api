@@ -57,8 +57,13 @@
 
 <script>
 export default {
-    props: ['id'],
-    data: function () {
+    props: {
+        id: {
+            type: Number,
+            required: true,
+        },
+    },
+    data() {
         return {
             order: {},
         }
@@ -67,7 +72,7 @@ export default {
         this.loadOrders()
     },
     methods: {
-        loadOrders: function () {
+        loadOrders() {
             axios
                 .get('/orders/' + this.id)
                 .then((response) => {

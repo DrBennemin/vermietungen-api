@@ -20,15 +20,15 @@
                 </div>
             </li>
         </router-link>
-        <context-menu-item class="cursor-pointer my-auto min-w-max" :id="item.id"></context-menu-item>
+        <context-menu class="cursor-pointer my-auto min-w-max" :id="item.id"></context-menu>
     </ul>
 </template>
 
 <script>
-import ContextMenuItem from './ContextMenuItem.vue'
+import ContextMenu from '@/components/ContextMenu.vue'
 
 export default {
-    components: { ContextMenuItem },
+    components: { ContextMenu },
     props: {
         item: {
             type: Object,

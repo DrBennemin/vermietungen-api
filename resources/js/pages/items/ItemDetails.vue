@@ -57,18 +57,22 @@
 
 <script>
 export default {
-    props: ['id'],
-    data: function () {
+    props: {
+        id: {
+            type: Number,
+            required: true,
+        },
+    },
+    data() {
         return {
             item: {},
         }
     },
-    //api über method aufrufen!
     created() {
         this.loadItems()
     },
     methods: {
-        loadItems: function () {
+        loadItems() {
             axios
                 .get('/items/' + this.id)
                 .then((response) => {

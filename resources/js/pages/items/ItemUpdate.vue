@@ -47,7 +47,12 @@
 
 <script>
 export default {
-    props: ['id'],
+    props: {
+        id: {
+            type: Number,
+            required: true,
+        },
+    },
     data: function () {
         return {
             item: {},
@@ -79,7 +84,7 @@ export default {
                 })
                 .then(() => {
                     this.$store.dispatch('item_updated', this.item)
-                    this.$router.push({ name: 'Inventory' })
+                    this.$router.push({ name: 'Items' })
                 })
                 .catch((error) => {
                     console.log(error)

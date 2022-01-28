@@ -29,8 +29,13 @@
 
 <script>
 export default {
-    props: ['id'],
-    data: function () {
+    props: {
+        id: {
+            type: Number,
+            required: true,
+        },
+    },
+    data() {
         return {
             order: {},
         }
