@@ -1,11 +1,11 @@
 import VueRouter from 'vue-router'
 import Home from '../pages/Home.vue'
-import Articles from '../pages/articles/Articles.vue'
+import ArticleList from '../pages/articles/ArticleList.vue'
 import ArticleDetails from '../pages/articles/ArticleDetails.vue'
 import ArticleAdd from '../pages/articles/ArticleAdd.vue'
 import ArticleUpdate from '../pages/articles/ArticleUpdate.vue'
 import OrderAdd from '../pages/orders/OrderAdd.vue'
-import Orders from '../pages/orders/Orders.vue'
+import OrderList from '../pages/orders/OrderList.vue'
 import OrderDetails from '../pages/orders/OrderDetails.vue'
 import OrderUpdate from '../pages/orders/OrderUpdate.vue'
 import SearchResults from '../pages/SearchResults.vue'
@@ -19,7 +19,7 @@ const routes = [
     {
         path: '/articles',
         name: 'Articles',
-        component: Articles,
+        component: ArticleList,
     },
     {
         path: '/article-add',
@@ -48,7 +48,7 @@ const routes = [
         path: '/orders',
         name: 'Orders',
         props: true,
-        component: Orders,
+        component: OrderList,
     },
     {
         path: '/orders/:id',

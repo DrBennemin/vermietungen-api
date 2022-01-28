@@ -1,25 +1,22 @@
 module.exports = {
-    mode: "jit",
-    purge: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
-    ],
+    mode: 'jit',
+    purge: ['./resources/**/*.blade.php', './resources/**/*.js', './resources/**/*.vue'],
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
             colors: {
-                primary: "#ef5454",
-                secondary: "#00a6c7",
-                tertiary: "#95BF8F",
+                primary: '#ef5454',
+                secondary: '#00a6c7',
+                tertiary: '#95BF8F',
             },
             fontFamily: {
-                primary: ["Nunito"],
+                primary: ['Nunito'],
+                logo: ['Dongle'],
             },
         },
     },
     variants: {
         extend: {},
     },
-    plugins: [require("@tailwindcss/forms")],
-};
+    plugins: [require('@tailwindcss/forms')],
+}

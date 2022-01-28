@@ -10,7 +10,7 @@
                 <li>
                     <router-link
                         class="flex items-center space-x-4 hover:text-primary cursor-pointer"
-                        :to="{ name: this.$route.name, params: { id: this.$route.name.id } }">
+                        :to="{ name: 'ArticleUpdate', params: { id: article.id } }">
                         <img src="img/edit-pencil.svg" alt="delete" class="w-4 fill-current hover:text-primary" />
                         <span> Bearbeiten </span>
                     </router-link>
@@ -35,12 +35,6 @@ export default {
         order() {
             return this.$store.getters.get_order(this.id)
         },
-        routeName() {
-            return this.$route.name
-        },
-        routePath() {
-            return this.$route.path
-        },
     },
     data() {
         return {
@@ -55,7 +49,7 @@ export default {
             axios
                 .delete(this.$route.path + '/' + this.id)
                 .then(() => {
-                    if (this.$route.name == 'Articles') {
+                    if (this.$route.name == 'articles') {
                         this.$store.dispatch('article_deleted', this.id)
                     } else {
                         this.$store.dispatch('order_deleted', this.id)

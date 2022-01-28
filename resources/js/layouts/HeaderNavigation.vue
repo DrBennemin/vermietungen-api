@@ -1,8 +1,10 @@
 <template>
     <div class="flex justify-between items-center">
         <div class="ml-6">
-            <a href="/">
-                <img src="/img/vermietung-api-logo.svg" alt="logo" class="w-12 h-12" />
+            <a href="/" class="flex items-center space-x-2">
+                <span class="text-2xl">Jack </span>
+                <img src="/img/bird.png" alt="logo" class="w-12 h-12" />
+                <span class="text-2xl"> Borrow</span>
             </a>
         </div>
         <div class="w-1/3">

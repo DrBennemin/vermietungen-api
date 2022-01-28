@@ -4,11 +4,11 @@
             <h2>Suchergebnisse</h2>
         </div>
         <div v-if="articles.length" class="bg-white rounded-lg shadow-md mx-4">
-            <article-card
+            <article-item
                 v-for="(article, key) in articles"
                 :key="key"
                 :article="article"
-                class="border-b-2"></article-card>
+                class="border-b-2"></article-item>
         </div>
         <!-- <div v-if="orders.length" class="bg-white rounded-lg shadow-md mx-4">
             <article-card v-for="(order, key) in orders" :key="key" :order="order" class="border-b-2"></article-card>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import ArticleCard from '@/components/articles/ArticleCard.vue'
+import ArticleItem from '@/components/articles/ArticleItem.vue'
 
 export default {
     props: {
@@ -27,7 +27,7 @@ export default {
             required: true,
         },
     },
-    components: { ArticleCard },
+    components: { ArticleItem },
     data() {
         return {
             articles: {},
