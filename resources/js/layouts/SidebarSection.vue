@@ -1,11 +1,11 @@
 <template>
     <div class="flex flex-col justify-between border-r bg-white shadow-md space-y-4 pt-24">
         <div>
-            <router-link :to="{ name: 'Items' }">
+            <router-link :to="{ name: 'Articles' }">
                 <div class="flex justify-between items-center px-6 py-4 border-b-2 cursor-pointer space-x-12">
                     <h2 class="text-lg">Inventar</h2>
                     <div class="bg-primary p-2 text-white text-xs rounded-full">
-                        {{ items.length }}
+                        {{ articles.length }}
                     </div>
                 </div>
             </router-link>
@@ -32,7 +32,7 @@
 export default {
     data() {
         return {
-            items: {},
+            articles: {},
             orders: {},
         }
     },
@@ -46,18 +46,18 @@ export default {
     },
     created() {
         // if (this.items && this.orders == null) {
-        this.loadItems()
+        this.loadArticles()
         this.loadOrders()
         // } else {
         // }
     },
     methods: {
-        loadItems: function () {
+        loadArticles: function () {
             axios
-                .get('/items')
+                .get('/articles')
                 .then((response) => {
-                    this.items = response.data
-                    this.$store.dispatch('items_loaded', this.items)
+                    this.articles = response.data
+                    this.$store.dispatch('articles_loaded', this.articles)
                 })
                 .catch((error) => {
                     console.log(error)

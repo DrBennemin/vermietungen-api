@@ -1,9 +1,9 @@
 import VueRouter from 'vue-router'
 import Home from '../pages/Home.vue'
-import Items from '../pages/items/Items.vue'
-import ItemDetails from '../pages/items/ItemDetails.vue'
-import ItemAdd from '../pages/items/ItemAdd.vue'
-import ItemUpdate from '../pages/items/ItemUpdate.vue'
+import Articles from '../pages/articles/Articles.vue'
+import ArticleDetails from '../pages/articles/ArticleDetails.vue'
+import ArticleAdd from '../pages/articles/ArticleAdd.vue'
+import ArticleUpdate from '../pages/articles/ArticleUpdate.vue'
 import OrderAdd from '../pages/orders/OrderAdd.vue'
 import Orders from '../pages/orders/Orders.vue'
 import OrderDetails from '../pages/orders/OrderDetails.vue'
@@ -17,26 +17,26 @@ const routes = [
         component: Home,
     },
     {
-        path: '/items',
-        name: 'Items',
-        component: Items,
+        path: '/articles',
+        name: 'Articles',
+        component: Articles,
     },
     {
-        path: '/item-add',
-        name: 'ItemAdd',
-        component: ItemAdd,
+        path: '/article-add',
+        name: 'ArticleAdd',
+        component: ArticleAdd,
     },
     {
-        path: '/items/:id/update',
-        name: 'ItemUpdate',
+        path: '/articles/:id/update',
+        name: 'ArticleUpdate',
         props: true,
-        component: ItemUpdate,
+        component: ArticleUpdate,
     },
     {
-        path: '/items/:id',
-        name: 'ItemDetails',
+        path: '/articles/:id',
+        name: 'ArticleDetails',
         props: true,
-        component: ItemDetails,
+        component: ArticleDetails,
     },
     {
         path: '/order-add',

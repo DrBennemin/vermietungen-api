@@ -18,27 +18,31 @@
             </button>
         </div>
         <div class="bg-white rounded-lg shadow-md mx-4">
-            <item-card v-for="(item, key) in items" :key="key" :item="item" class="border-b-2"></item-card>
+            <article-card
+                v-for="(article, key) in articles"
+                :key="key"
+                :article="article"
+                class="border-b-2"></article-card>
         </div>
     </div>
 </template>
 
 <script>
-import ItemCard from '@/components/items/ItemCard.vue'
+import ArticleCard from '@/components/articles/ArticleCard.vue'
 
 export default {
-    components: { ItemCard },
+    components: { ArticleCard },
     data() {
         return {
-            items: {},
+            articles: {},
         }
     },
     created() {
         axios
-            .get('/items?_sort=id&_order=desc')
+            .get('/articles?_sort=id&_order=desc')
             .then((response) => {
-                this.items = response.data
-                this.$store.dispatch('items_updated', this.items)
+                this.articles = response.data
+                this.$store.dispatch('articles_updated', this.articles)
             })
             .catch((error) => {
                 console.log(error)
@@ -46,16 +50,16 @@ export default {
     },
     methods: {
         showAvailable() {
-            this.items = this.$store.getters.get_available
+            this.articles = this.$store.getters.get_available
         },
         showUnavailable() {
-            this.items = this.$store.getters.get_unavailable
+            this.articles = this.$store.getters.get_unavailable
         },
         showAll() {
-            this.items = this.$store.getters.get_items
+            this.articles = this.$store.getters.get_articles
         },
-        deleteItems() {
-            axios.delete('/items/' + id)
+        deleteArticles() {
+            axios.delete('/articles/' + id)
         },
     },
 }

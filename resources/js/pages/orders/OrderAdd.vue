@@ -14,12 +14,12 @@
                 class="rounded-lg focus:border-primary focus:ring-primary"
                 required />
             <label>Gegenstände</label>
-            <select class="rounded-lg focus:border-primary focus:ring-primary" v-model="order.item_id" required>
+            <select class="rounded-lg focus:border-primary focus:ring-primary" v-model="order.article_id" required>
                 <option value="">-- bitte auswählen --</option>
-                <option class="text-black" v-for="(item, key) in items" :key="key" :item="item">
+                <option class="text-black" v-for="(article, key) in articles" :key="key" :article="article">
                     <div class="flex space-x-4">
-                        {{ item.id }}
-                        {{ item.title }}
+                        {{ article.id }}
+                        {{ article.title }}
                     </div>
                 </option>
             </select>
@@ -42,7 +42,7 @@ export default {
     data: function () {
         return {
             order: {},
-            items: {},
+            articles: {},
         }
     },
     // computed: {
@@ -52,10 +52,10 @@ export default {
     // },
     created() {
         axios
-            .get('/items')
+            .get('/articles')
             .then((response) => {
-                this.items = response.data
-                this.$store.dispatch('items_updated', this.items)
+                this.articles = response.data
+                this.$store.dispatch('articles_updated', this.articles)
             })
             .catch((error) => {
                 console.log(error)

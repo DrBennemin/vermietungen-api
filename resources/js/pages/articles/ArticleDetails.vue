@@ -26,16 +26,16 @@
                 </div>
             </div>
 
-            <div class="col-span-2 space-y-4" :item="item">
+            <div class="col-span-2 space-y-4" :article="article">
                 <div class="flex space-x-4 items-center">
-                    <div v-if="item.available" class="rounded-full bg-tertiary w-4 h-4"></div>
+                    <div v-if="article.available" class="rounded-full bg-tertiary w-4 h-4"></div>
                     <div v-else class="rounded-full bg-primary w-4 h-4"></div>
                     <h2 class="text-4xl font-bold">
-                        {{ item.title }}
+                        {{ article.title }}
                     </h2>
                 </div>
                 <p>
-                    {{ item.description }}
+                    {{ article.description }}
                 </p>
                 <div class="flex">
                     <div class="mr-24">
@@ -47,7 +47,7 @@
                         <p class="text-xl">6/10</p>
                     </div>
                 </div>
-                <router-link :to="{ name: 'OrderAdd', params: { id: item.id } }" class="primary-btn my-4"
+                <router-link :to="{ name: 'OrderAdd', params: { id: article.id } }" class="primary-btn my-4"
                     >jetzt verleihen</router-link
                 >
             </div>
@@ -65,18 +65,18 @@ export default {
     },
     data() {
         return {
-            item: {},
+            article: {},
         }
     },
     created() {
-        this.loadItems()
+        this.loadArticles()
     },
     methods: {
-        loadItems() {
+        loadArticles() {
             axios
-                .get('/items/' + this.id)
+                .get('/articles/' + this.id)
                 .then((response) => {
-                    this.item = response.data
+                    this.article = response.data
                 })
                 .catch((error) => {
                     console.log(error)

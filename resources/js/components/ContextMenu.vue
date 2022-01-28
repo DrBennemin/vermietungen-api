@@ -10,13 +10,10 @@
                 <li>
                     <router-link
                         class="flex items-center space-x-4 hover:text-primary cursor-pointer"
-                        :to="{ name: 'this.$route.name', params: { id: item.id } }">
+                        :to="{ name: this.$route.name, params: { id: this.$route.name.id } }">
                         <img src="img/edit-pencil.svg" alt="delete" class="w-4 fill-current hover:text-primary" />
                         <span> Bearbeiten </span>
                     </router-link>
-                </li>
-                <li>
-                    {{ this.$route.path }}
                 </li>
             </ul>
         </button>
@@ -32,11 +29,17 @@ export default {
         },
     },
     computed: {
-        item: function () {
-            return this.$store.getters.get_item(this.id)
+        article() {
+            return this.$store.getters.get_article(this.id)
         },
-        order: function () {
+        order() {
             return this.$store.getters.get_order(this.id)
+        },
+        routeName() {
+            return this.$route.name
+        },
+        routePath() {
+            return this.$route.path
         },
     },
     data() {
@@ -52,12 +55,11 @@ export default {
             axios
                 .delete(this.$route.path + '/' + this.id)
                 .then(() => {
-                    if (this.$route.name == 'Items') {
-                        this.$store.dispatch('item_deleted', this.id)
+                    if (this.$route.name == 'Articles') {
+                        this.$store.dispatch('article_deleted', this.id)
                     } else {
                         this.$store.dispatch('order_deleted', this.id)
                     }
-                    console.log('hallo')
                 })
                 .catch((error) => {
                     console.log(error)

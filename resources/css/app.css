@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-    .item-card {
+    .article-card {
         @apply relative
         flex
         p-4

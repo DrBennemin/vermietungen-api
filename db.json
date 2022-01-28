@@ -1,5 +1,5 @@
 {
-  "items": [
+  "articles": [
     {
       "title": "Stream Deck",
       "description": "Gutes Teil von Elgato",
@@ -8,7 +8,7 @@
       "id": 25
     },
     {
-      "title": "Heizpilz ",
+      "title": "Heizpilz",
       "description": "f. Gas-Flaschen bis 125 l · Ideal für die nächste Garten-Party",
       "available": true,
       "id": 26
@@ -37,6 +37,12 @@
       "first_name": "Benjamin",
       "last_name": "Knopf",
       "id": 3
+    },
+    {
+      "first_name": "Birte",
+      "last_name": "Hagenklöppel",
+      "article_id": "25 Stream Deck",
+      "id": 4
     }
   ]
 }

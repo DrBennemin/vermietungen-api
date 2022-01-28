@@ -3,18 +3,22 @@
         <div>
             <h2>Suchergebnisse</h2>
         </div>
-        <div v-if="items.length" class="bg-white rounded-lg shadow-md mx-4">
-            <item-card v-for="(item, key) in items" :key="key" :item="item" class="border-b-2"></item-card>
+        <div v-if="articles.length" class="bg-white rounded-lg shadow-md mx-4">
+            <article-card
+                v-for="(article, key) in articles"
+                :key="key"
+                :article="article"
+                class="border-b-2"></article-card>
         </div>
         <!-- <div v-if="orders.length" class="bg-white rounded-lg shadow-md mx-4">
-            <item-card v-for="(order, key) in orders" :key="key" :order="order" class="border-b-2"></item-card>
+            <article-card v-for="(order, key) in orders" :key="key" :order="order" class="border-b-2"></article-card>
         </div>
         <div v-else>Deine Suchanfrage hat keine Ergebnisse geliefert...</div> -->
     </div>
 </template>
 
 <script>
-import ItemCard from '@/components/items/ItemCard.vue'
+import ArticleCard from '@/components/articles/ArticleCard.vue'
 
 export default {
     props: {
@@ -23,19 +27,19 @@ export default {
             required: true,
         },
     },
-    components: { ItemCard },
+    components: { ArticleCard },
     data() {
         return {
-            items: {},
+            articles: {},
             // orders: {},
         }
     },
     created() {
         axios
-            .get('/items?q=' + this.$route.params.searchTerm)
+            .get('/articles?q=' + this.$route.params.searchTerm)
             .then((response) => {
-                this.items = response.data
-                this.$store.dispatch('items_updated', this.items)
+                this.articles = response.data
+                this.$store.dispatch('articles_updated', this.articles)
             })
             .catch((error) => {
                 console.log(error)

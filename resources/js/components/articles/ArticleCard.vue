@@ -1,26 +1,26 @@
 <template>
-    <ul class="item-card">
-        <router-link class="flex-grow" :to="{ name: 'ItemDetails', params: { id: item.id } }">
+    <ul class="article-card">
+        <router-link class="flex-grow" :to="{ name: 'ArticleDetails', params: { id: article.id } }">
             <li class="flex space-x-6 items-center">
                 <div class="min-w-max">
-                    <div v-if="item.available" class="rounded-full bg-tertiary w-4 h-4"></div>
+                    <div v-if="article.available" class="rounded-full bg-tertiary w-4 h-4"></div>
                     <div v-else class="rounded-full bg-primary w-4 h-4"></div>
                 </div>
                 <div>
                     <p class="font-bold">
-                        {{ item.title }}
+                        {{ article.title }}
                     </p>
                     <p>
-                        {{ item.description }}
+                        {{ article.description }}
                     </p>
-                    <p v-if="!item.available">
+                    <p v-if="!article.available">
                         Artikel wird am
-                        <b>{{ item.date_return }}</b> zurückgegeben.
+                        <b>{{ article.date_return }}</b> zurückgegeben.
                     </p>
                 </div>
             </li>
         </router-link>
-        <context-menu class="cursor-pointer my-auto min-w-max" :id="item.id"></context-menu>
+        <context-menu class="cursor-pointer my-auto min-w-max" :id="article.id"></context-menu>
     </ul>
 </template>
 
@@ -30,7 +30,7 @@ import ContextMenu from '@/components/ContextMenu.vue'
 export default {
     components: { ContextMenu },
     props: {
-        item: {
+        article: {
             type: Object,
             required: true,
         },

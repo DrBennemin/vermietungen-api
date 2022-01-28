@@ -1,18 +1,20 @@
 <template>
     <div class="container mx-auto py-24">
-        <form @submit.prevent="updateItem" class="flex flex-col space-y-4">
+        <form @submit.prevent="addArticle" class="flex flex-col space-y-4">
             <label>Titel</label>
             <input
                 type="text"
+                id=""
+                v-model="article.title"
                 class="rounded-lg focus:border-primary focus:ring-primary"
-                required
-                v-model="item.title" />
+                required />
             <label>Beschreibung</label>
             <input
                 type="text"
+                id=""
+                v-model="article.description"
                 class="rounded-lg focus:border-primary focus:ring-primary"
-                required
-                v-model="item.description" />
+                required />
             <div class="flex justify-between">
                 <div class="flex flex-col space-x-4">
                     <label>Verfügbar</label>
@@ -20,21 +22,23 @@
                         <input
                             type="radio"
                             class="text-primary focus:ring-primary"
+                            id="yes"
                             :value="true"
-                            v-model="item.available" />
+                            v-model="article.available" />
                         <label for="yes">ja</label>
                         <input
                             type="radio"
                             class="text-primary focus:ring-primary"
+                            id="no"
                             :value="false"
-                            v-model="item.available" />
+                            v-model="article.available" />
                         <label for="no">nein</label>
                     </div>
                 </div>
 
-                <div class="w-1/2" v-if="!item.available">
+                <div v-show="!article.available" class="w-1/2">
                     <label>Rückgabedatum</label>
-                    <input class="w-full rounded-lg" type="date" v-model="item.date_return" />
+                    <input class="w-full rounded-lg" type="date" v-model="article.date_return" />
                 </div>
             </div>
 
@@ -47,44 +51,18 @@
 
 <script>
 export default {
-    props: {
-        id: {
-            type: Number,
-            required: true,
-        },
-    },
-    data: function () {
+    data() {
         return {
-            item: {},
+            article: {},
         }
     },
-    // computed: {
-    //     item: function () {
-    //         return this.$store.getters.get_item(this.id);
-    //     },
-    // },
-    created() {
-        axios
-            .get('/items/' + this.id)
-            .then((response) => {
-                this.item = response.data
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    },
     methods: {
-        updateItem() {
+        addArticle() {
             axios
-                .put('items/' + this.id, {
-                    title: this.item.title,
-                    description: this.item.description,
-                    available: this.item.available,
-                    date_return: this.item.date_return,
-                })
+                .post('/articles', this.article)
                 .then(() => {
-                    this.$store.dispatch('item_updated', this.item)
-                    this.$router.push({ name: 'Items' })
+                    this.$store.dispatch('article_added', this.article)
+                    this.$router.push({ name: 'Articles' })
                 })
                 .catch((error) => {
                     console.log(error)

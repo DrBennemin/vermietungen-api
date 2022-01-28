@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import items from './items.module'
+import articles from './articles.module'
 import orders from './orders.module'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
     modules: {
-        items,
+        articles,
         orders,
     },
 })
