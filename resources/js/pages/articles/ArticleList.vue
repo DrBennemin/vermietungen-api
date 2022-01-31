@@ -47,7 +47,7 @@
                     px-3
                     py-1
                 ">
-                <img src="/img/close.svg" class="w-4 h-4" alt="close-filter" />
+                <img src="/img/close-primary.svg" class="w-4 h-4" alt="close-filter" />
                 <button class="font-bold cursor-pointer" @click="showAllArticles">Filter zurücksetzen</button>
             </div>
         </div>

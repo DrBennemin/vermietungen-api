@@ -6,11 +6,8 @@
                 <div v-else class="rounded-full bg-primary w-4 h-4"></div> -->
                 <div>
                     <p class="font-bold">{{ order.first_name }} {{ order.last_name }}</p>
-
-                    <!-- <p v-if="!item.available">
-                        Artikel wird am
-                        <b>{{ item.date_return }}</b> zurückgegeben.
-                    </p> -->
+                    <p>Artikel: {{ order.article_id }}</p>
+                    <p>Rückgabe: {{ order.date_return }}</p>
                 </div>
             </li>
         </router-link>

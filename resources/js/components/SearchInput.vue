@@ -10,7 +10,6 @@
                     v-model="searchTerm"
                     placeholder="SUCHE..."
                     class="
-                        w-full
                         py-2
                         bg-gray-200
                         rounded-lg
@@ -19,6 +18,11 @@
                         focus:border-primary focus:ring-primary focus:bg-white
                     " />
             </form>
+            <img
+                src="/img/close.svg"
+                class="w-4 absolute right-3 top-3 cursor-pointer"
+                alt="close-filter"
+                @click="closeSearch" />
         </div>
     </div>
 </template>
@@ -30,9 +34,22 @@ export default {
             searchTerm: '',
         }
     },
+    computed: {
+        isSearch() {
+            return this.$route.name === 'SearchResults'
+        },
+    },
     methods: {
-        pushToSearch: function () {
+        pushToSearch() {
             this.$router.push({ name: 'SearchResults', params: { searchTerm: this.searchTerm } })
+        },
+        closeSearch() {
+            this.searchTerm = ''
+            if (this.isSearch) {
+                this.$router.go(-1)
+            } else {
+                return
+            }
         },
     },
 }

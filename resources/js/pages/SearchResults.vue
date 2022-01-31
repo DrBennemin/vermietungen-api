@@ -1,7 +1,7 @@
 <template>
     <div class="container mx-auto py-24">
-        <div>
-            <h2>Suchergebnisse</h2>
+        <div class="m-4">
+            <h2 class="text-2xl font-bold">Suchergebnisse</h2>
         </div>
         <div v-if="articles.length" class="bg-white rounded-lg shadow-md mx-4">
             <article-item

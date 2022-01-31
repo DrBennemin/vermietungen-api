@@ -1,16 +1,16 @@
-require("./bootstrap");
+require('./bootstrap')
 
-import Vue from "vue";
-import VueRouter from "vue-router";
-import router from "./router/index";
-import store from "./store/index";
-import App from "./layouts/App.vue";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import router from './router/index'
+import store from './store/index'
+import App from './layouts/App.vue'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const app = new Vue({
-    el: "#app",
+    el: '#app',
     router,
     store,
     components: { App },
-});
+})

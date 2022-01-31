@@ -18,31 +18,43 @@
       "description": "Mikrofon USB inkl. 3m USB Kabel",
       "available": true,
       "id": 27
+    },
+    {
+      "title": "Baustellenleiter",
+      "description": "A-Frame Sicherheitsleiter 3,5 Meter TÜV bis 2023",
+      "available": false,
+      "date_return": "2022-03-29",
+      "id": 29
+    },
+    {
+      "title": "Kabeltrommel",
+      "description": "45m mit 3 Steckdosen 230 V",
+      "available": false,
+      "date_return": "2022-03-18",
+      "id": 30
     }
   ],
   "orders": [
     {
-      "item_id": "Heizpilz 150 L",
-      "first_name": "Dirk",
-      "last_name": "Steffen",
-      "id": 1
+      "first_name": "Nestor",
+      "last_name": "Hermelin",
+      "article_id": "27 Rode Mic",
+      "date_return": "2022-12-06",
+      "id": 10
     },
     {
-      "first_name": "Andre",
-      "last_name": "Hetkämper",
-      "id": 2
+      "first_name": "Kunigunde",
+      "last_name": "Hallertobel",
+      "article_id": "26 Heizpilz",
+      "date_return": "2022-06-06",
+      "id": 11
     },
     {
-      "item_id": "11",
-      "first_name": "Benjamin",
-      "last_name": "Knopf",
-      "id": 3
-    },
-    {
-      "first_name": "Birte",
-      "last_name": "Hagenklöppel",
-      "article_id": "25 Stream Deck",
-      "id": 4
+      "first_name": "Heribert",
+      "last_name": "Strauss",
+      "article_id": "27 Rode Mic",
+      "date_return": "2022-09-28",
+      "id": 12
     }
   ]
 }
