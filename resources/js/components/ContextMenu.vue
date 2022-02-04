@@ -1,30 +1,32 @@
 <template>
-    <div>
-        <button class="cursor-pointer my-auto" @click="toggleContextMenu">
+    <div class="relative">
+        <ul class="absolute top-6 right-0 shadow-md rounded-lg px-8 py-4 space-y-4 bg-white z-50" v-if="isActive">
+            <li class="flex items-center space-x-4 hover:text-primary cursor-pointer" @click="openDialog">
+                <img src="img/trash.svg" alt="delete" class="w-4 hover:text-primary" />
+                <span> Löschen </span>
+            </li>
+            <li v-if="isArticle">
+                <router-link
+                    class="flex items-center space-x-4 hover:text-primary cursor-pointer"
+                    :to="{ name: 'ArticleUpdate', params: { id: article.id } }">
+                    <img src="img/edit-pencil.svg" alt="delete" class="w-4 fill-current hover:text-primary" />
+                    <span> Bearbeiten </span>
+                </router-link>
+            </li>
+            <li v-else>
+                <router-link
+                    class="flex items-center space-x-4 hover:text-primary cursor-pointer"
+                    :to="{ name: 'OrderUpdate', params: { id: order.id } }">
+                    <img src="img/edit-pencil.svg" alt="delete" class="w-4 fill-current hover:text-primary" />
+                    <span> Bearbeiten </span>
+                </router-link>
+            </li>
+        </ul>
+        <div class="cursor-pointer my-auto" @click="toggleContextMenu">
             <img src="img/dots-horizontal-triple.svg" alt="context-menu-dots" class="w-8 opacity-75" />
-            <ul class="absolute shadow-md rounded-lg px-8 py-4 space-y-4 bg-white z-10" v-if="contextMenuOpen">
-                <li class="flex items-center space-x-4 hover:text-primary cursor-pointer" @click="openDialog">
-                    <img src="img/trash.svg" alt="delete" class="w-4 hover:text-primary" />
-                    <span> Löschen </span>
-                </li>
-                <li v-if="isArticle">
-                    <router-link
-                        class="flex items-center space-x-4 hover:text-primary cursor-pointer"
-                        :to="{ name: 'ArticleUpdate', params: { id: article.id } }">
-                        <img src="img/edit-pencil.svg" alt="delete" class="w-4 fill-current hover:text-primary" />
-                        <span> Bearbeiten </span>
-                    </router-link>
-                </li>
-                <li v-else>
-                    <router-link
-                        class="flex items-center space-x-4 hover:text-primary cursor-pointer"
-                        :to="{ name: 'OrderUpdate', params: { id: order.id } }">
-                        <img src="img/edit-pencil.svg" alt="delete" class="w-4 fill-current hover:text-primary" />
-                        <span> Bearbeiten </span>
-                    </router-link>
-                </li>
-            </ul>
-        </button>
+        </div>
+        <div v-if="isActive" class="fixed top-0 left-0 z-40 w-screen h-screen" @click="toggleContextMenu"></div>
+        <v-dialog />
     </div>
 </template>
 
@@ -52,30 +54,45 @@ export default {
     },
     data() {
         return {
-            contextMenuOpen: false,
+            isActive: false,
         }
     },
     methods: {
         toggleContextMenu() {
-            this.contextMenuOpen = !this.contextMenuOpen
+            this.isActive = !this.isActive
         },
         openDialog() {
-            this.$emit('openDialog')
+            this.$modal.show('dialog', {
+                title: 'Mit dem Löschen fortfahren?',
+                buttons: [
+                    {
+                        title: 'Abbrechen',
+                        handler: () => {
+                            this.$modal.hide('dialog')
+                            this.isActive = !this.isActive
+                        },
+                    },
+                    {
+                        title: 'Ja, löschen!',
+                        handler: () => {
+                            axios
+                                .delete(this.$route.path + '/' + this.id)
+                                .then(() => {
+                                    if (this.$route.name == 'articles') {
+                                        this.$store.dispatch('article_deleted', this.id)
+                                    } else {
+                                        this.$store.dispatch('order_deleted', this.id)
+                                    }
+                                    this.$modal.hide('dialog')
+                                })
+                                .catch((error) => {
+                                    console.log(error)
+                                })
+                        },
+                    },
+                ],
+            })
         },
-        // deleteObject() {
-        //     axios
-        //         .delete(this.$route.path + '/' + this.id)
-        //         .then(() => {
-        //             if (this.$route.name == 'articles') {
-        //                 this.$store.dispatch('article_deleted', this.id)
-        //             } else {
-        //                 this.$store.dispatch('order_deleted', this.id)
-        //             }
-        //         })
-        //         .catch((error) => {
-        //             console.log(error)
-        //         })
-        // },
     },
 }
 </script>

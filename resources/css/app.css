@@ -1,4 +1,4 @@
-/* @import '_fonts'; */
+/* @import '_fonts.css'; */
 
 /* purgecss start ignore */
 @tailwind base;
@@ -60,8 +60,9 @@
         @apply origin-center transform rotate-45;
     }
     .fab-content {
-        @apply hidden bg-white  cursor-pointer p-8 rounded-md shadow-xl border-2 space-y-4;
+        @apply hidden bg-white  cursor-pointer rounded-md shadow-xl border-2 space-y-4 z-50 relative;
     }
+
     .active div {
         @apply border-r-4 border-r-primary font-bold;
     }

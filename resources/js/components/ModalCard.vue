@@ -1,7 +1,7 @@
 <template>
     <div>
         <transition name="fade" appear>
-            <div class="modal-overlay" v-if="showModal" @openDialog="toggleModal"></div>
+            <div class="modal-overlay" v-if="showModal" @click="toggleModal"></div>
         </transition>
         <transition name="slide" appear>
             <div class="modal" v-if="showModal">
@@ -10,8 +10,8 @@
                     {{ text }}
                 </p>
                 <div class="flex justify-between py-2">
-                    <button class="btn-primary" @openDialog="toggleModal">{{ submitButtonTitle }}</button>
-                    <button class="btn-secondary" @openDialog="toggleModal">{{ cancelButtonTitle }}</button>
+                    <button class="btn-primary" @click="toggleModal">{{ submitButtonTitle }}</button>
+                    <button class="btn-secondary" @click="toggleModal">{{ cancelButtonTitle }}</button>
                 </div>
             </div>
         </transition>
@@ -22,7 +22,7 @@
 export default {
     data() {
         return {
-            showModal: false,
+            showModal: true,
         }
     },
     props: {

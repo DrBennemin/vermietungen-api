@@ -10,8 +10,8 @@ module.exports = {
                 tertiary: '#95BF8F',
             },
             fontFamily: {
-                primary: ['Nunito'],
-                logo: ['Dongle'],
+                primary: 'Nunito',
+                logo: 'Dongle',
             },
         },
     },

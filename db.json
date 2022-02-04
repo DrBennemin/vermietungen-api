@@ -1,19 +1,6 @@
 {
   "articles": [
     {
-      "title": "Stream Deck",
-      "description": "Gutes Teil von Elgato",
-      "available": false,
-      "date_return": "2022-01-25",
-      "id": 25
-    },
-    {
-      "title": "Heizpilz",
-      "description": "f. Gas-Flaschen bis 125 l · Ideal für die nächste Garten-Party",
-      "available": true,
-      "id": 26
-    },
-    {
       "title": "Rode Mic",
       "description": "Mikrofon USB inkl. 3m USB Kabel",
       "available": true,
@@ -32,6 +19,13 @@
       "available": false,
       "date_return": "2022-03-18",
       "id": 30
+    },
+    {
+      "title": "Heizpilz",
+      "description": "f. Gas-Flaschen bis 125 l · Ideal für die nächste Garten-Party",
+      "available": false,
+      "date_return": "2022-01-28",
+      "id": 31
     }
   ],
   "orders": [

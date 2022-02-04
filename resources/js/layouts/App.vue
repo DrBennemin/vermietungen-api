@@ -5,7 +5,7 @@
             <sidebar-section></sidebar-section>
             <router-view class="flex-grow h-screen"></router-view>
         </div>
-        <floating-action-button class="relative"></floating-action-button>
+        <floating-action-button></floating-action-button>
         <modal-card></modal-card>
     </div>
 </template>
