@@ -15,8 +15,10 @@
                     px-3
                     py-1
                 ">
-                <div class="rounded-full bg-tertiary w-4 h-4"></div>
-                <button class="font-bold cursor-pointer" @click="showAvailableArticles">Verfügbare Artikel</button>
+                <div class="min-w-max">
+                    <div class="rounded-full bg-tertiary w-4 h-4"></div>
+                </div>
+                <button class="font-bold cursor-pointer truncate" @click="showAvailableArticles">Auf Lager</button>
             </div>
             <div
                 class="
@@ -31,8 +33,10 @@
                     px-3
                     py-1
                 ">
-                <div class="rounded-full bg-primary w-4 h-4"></div>
-                <button class="font-bold cursor-pointer" @click="showUnavailableArticles">Verliehene Artikel</button>
+                <div class="min-w-max">
+                    <div class="rounded-full bg-primary w-4 h-4"></div>
+                </div>
+                <button class="font-bold cursor-pointer truncate" @click="showUnavailableArticles">Verliehen</button>
             </div>
             <div
                 class="
@@ -47,8 +51,10 @@
                     px-3
                     py-1
                 ">
-                <img src="/img/close-primary.svg" class="w-4 h-4" alt="close-filter" />
-                <button class="font-bold cursor-pointer" @click="showAllArticles">Filter zurücksetzen</button>
+                <div class="min-w-max">
+                    <img src="/img/close-primary.svg" class="w-4 h-4" alt="close-filter" />
+                </div>
+                <button class="truncate font-bold cursor-pointer" @click="showAllArticles">Filter entfernen</button>
             </div>
         </div>
         <div class="bg-white rounded-lg shadow-md mx-4">

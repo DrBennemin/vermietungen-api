@@ -11,7 +11,7 @@
             </router-link>
             <router-link :to="{ name: 'Orders' }">
                 <div class="flex justify-between items-center px-6 py-4 border-b-2 cursor-pointer space-x-12">
-                    <h2 class="text-lg">Vorgänge</h2>
+                    <h2 class="text-lg">Vermierungen</h2>
                     <div class="bg-primary p-2 text-white text-xs rounded-full">
                         {{ orders.length }}
                     </div>
