@@ -27,6 +27,7 @@
     "dependencies": {
         "@tailwindcss/forms": "^0.3.4",
         "json-server": "^0.17.0",
+        "uuid": "^8.3.2",
         "vue-js-modal": "^2.0.1",
         "vue-router": "^3.5.3"
     }

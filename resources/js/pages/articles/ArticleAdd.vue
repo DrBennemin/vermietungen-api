@@ -5,18 +5,17 @@
                 <label>Titel</label>
                 <input
                     type="text"
-                    id=""
                     v-model="article.title"
                     class="rounded-lg focus:border-primary focus:ring-primary"
                     required />
                 <label>Beschreibung</label>
                 <input
                     type="text"
-                    id=""
                     v-model="article.description"
                     class="rounded-lg focus:border-primary focus:ring-primary"
                     required />
-                <div class="flex justify-between">
+
+                <!-- <div class="flex justify-between">
                     <div class="flex flex-col space-x-4">
                         <label>Verfügbar</label>
                         <div class="flex space-x-4 items-center">
@@ -43,7 +42,7 @@
                         <label>Rückgabedatum</label>
                         <input class="w-full rounded-lg" type="date" v-model="article.date_return" />
                     </div>
-                </div>
+                </div> -->
 
                 <button class="py-2 px-4 rounded-lg hover:bg-secondary bg-primary font-bold text-white" type="submit">
                     speichern
@@ -57,7 +56,11 @@
 export default {
     data() {
         return {
-            article: {},
+            article: {
+                title: '',
+                description: '',
+                available: true,
+            },
         }
     },
     methods: {

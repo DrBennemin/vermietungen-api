@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-        <ul class="absolute top-6 right-0 shadow-md rounded-lg px-8 py-4 space-y-4 bg-white z-50" v-if="isActive">
+        <ul class="absolute top-6 right-0 shadow-md rounded-lg px-8 py-4 space-y-4 bg-white z-50" v-if="backdropActive">
             <li class="flex items-center space-x-4 hover:text-primary cursor-pointer" @click="openDialog">
                 <img src="img/trash.svg" alt="delete" class="w-4 hover:text-primary" />
                 <span> Löschen </span>
@@ -25,7 +25,7 @@
         <div class="cursor-pointer my-auto" @click="toggleContextMenu">
             <img src="img/dots-horizontal-triple.svg" alt="context-menu-dots" class="w-8 opacity-75" />
         </div>
-        <div v-if="isActive" class="fixed top-0 left-0 z-40 w-screen h-screen" @click="toggleContextMenu"></div>
+        <div v-if="backdropActive" class="fixed top-0 left-0 z-40 w-screen h-screen" @click="toggleContextMenu"></div>
         <v-dialog />
     </div>
 </template>
@@ -54,22 +54,22 @@ export default {
     },
     data() {
         return {
-            isActive: false,
+            backdropActive: false,
         }
     },
     methods: {
         toggleContextMenu() {
-            this.isActive = !this.isActive
+            this.backdropActive = !this.backdropActive
         },
         openDialog() {
             this.$modal.show('dialog', {
-                title: 'Mit dem Löschen fortfahren?',
+                title: 'Wirklich löschen?',
                 buttons: [
                     {
                         title: 'Abbrechen',
                         handler: () => {
                             this.$modal.hide('dialog')
-                            this.isActive = !this.isActive
+                            this.toggleContextMenu()
                         },
                     },
                     {
@@ -78,16 +78,17 @@ export default {
                             axios
                                 .delete(this.$route.path + '/' + this.id)
                                 .then(() => {
-                                    if (this.$route.name == 'articles') {
+                                    if (this.isArticle) {
                                         this.$store.dispatch('article_deleted', this.id)
                                     } else {
                                         this.$store.dispatch('order_deleted', this.id)
                                     }
-                                    this.$modal.hide('dialog')
                                 })
                                 .catch((error) => {
                                     console.log(error)
                                 })
+                            this.$modal.hide('dialog')
+                            this.toggleContextMenu()
                         },
                     },
                 ],

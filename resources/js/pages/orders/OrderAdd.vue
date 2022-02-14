@@ -1,19 +1,30 @@
 <template>
     <div class="container mx-auto py-24">
         <div class="max-w-5xl m-auto bg-white rounded-lg shadow-xl p-8">
-            <form @submit.prevent="addOrder" class="flex flex-col space-y-4">
-                <label>Vorname</label>
-                <input
-                    type="text"
-                    v-model="order.first_name"
-                    class="rounded-lg focus:border-primary focus:ring-primary"
-                    required />
-                <label>Nachname</label>
-                <input
-                    type="text"
-                    v-model="order.last_name"
-                    class="rounded-lg focus:border-primary focus:ring-primary"
-                    required />
+            <form
+                @submit.prevent="
+                    addOrder()
+                    updateArticle()
+                "
+                class="flex flex-col space-y-4">
+                <div class="flex space-x-4">
+                    <div class="flex flex-col w-1/2">
+                        <label>Vorname</label>
+                        <input
+                            type="text"
+                            v-model="order.first_name"
+                            class="rounded-lg focus:border-primary focus:ring-primary"
+                            required />
+                    </div>
+                    <div class="flex flex-col w-1/2">
+                        <label>Nachname</label>
+                        <input
+                            type="text"
+                            v-model="order.last_name"
+                            class="rounded-lg focus:border-primary focus:ring-primary"
+                            required />
+                    </div>
+                </div>
                 <div class="flex py-4 space-x-4 items-center">
                     <div class="flex flex-col w-1/2">
                         <label>Gegenstände</label>
@@ -51,16 +62,8 @@ export default {
             articles: {},
         }
     },
-    created() {
-        axios
-            .get('/articles')
-            .then((response) => {
-                this.articles = response.data
-                this.$store.dispatch('articles_updated', this.articles)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
+    mounted() {
+        this.loadAvailabelAricles()
     },
     methods: {
         addOrder() {
@@ -69,6 +72,31 @@ export default {
                 .then(() => {
                     this.$store.dispatch('order_added', this.order)
                     this.$router.push({ name: 'Orders' })
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        },
+        updateArticle() {
+            axios
+                .put('articles/' + this.articles.id, {
+                    available: false,
+                    date_return: this.order.date_return,
+                })
+                .then(() => {
+                    this.$store.dispatch('article_updated', this.articles)
+                    this.$router.push({ name: 'Articles' })
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        },
+        loadAvailabelAricles() {
+            axios
+                .get('/articles?available=true')
+                .then((response) => {
+                    this.articles = response.data
+                    this.$store.dispatch('articles_updated', this.articles)
                 })
                 .catch((error) => {
                     console.log(error)
