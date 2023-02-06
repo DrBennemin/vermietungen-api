@@ -26,6 +26,11 @@
       "available": false,
       "date_return": "2022-01-28",
       "id": 31
+    },
+    {
+      "title": "asdfasdfasdf",
+      "description": "asdfasdfasdf",
+      "id": 32
     }
   ],
   "orders": [
@@ -49,6 +54,13 @@
       "article_id": "27 Rode Mic",
       "date_return": "2022-09-28",
       "id": 12
+    },
+    {
+      "first_name": "Hannes",
+      "last_name": "Wader",
+      "article_id": "30 Kabeltrommel",
+      "date_return": "2022-07-25",
+      "id": 13
     }
   ]
 }

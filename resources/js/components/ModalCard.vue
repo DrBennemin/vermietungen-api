@@ -22,7 +22,7 @@
 export default {
     data() {
         return {
-            showModal: true,
+            showModal: false,
         }
     },
     props: {

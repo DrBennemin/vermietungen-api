@@ -75,23 +75,36 @@ export default {
                     {
                         title: 'Ja, löschen!',
                         handler: () => {
-                            axios
-                                .delete(this.$route.path + '/' + this.id)
-                                .then(() => {
-                                    if (this.$route.name == 'articles') {
-                                        this.$store.dispatch('article_deleted', this.id)
-                                    } else {
-                                        this.$store.dispatch('order_deleted', this.id)
-                                    }
-                                    this.$modal.hide('dialog')
-                                })
-                                .catch((error) => {
-                                    console.log(error)
-                                })
+                            if ((this.isArticle = true)) {
+                                deleteArticle
+                            } else {
+                                deleteOrder
+                            }
+                            this.$modal.hide('dialog')
                         },
                     },
                 ],
             })
+        },
+        deleteArticle() {
+            axios
+                .delete(this.$route.path + '/' + this.id)
+                .then(() => {
+                    this.$store.dispatch('article_deleted', this.id)
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        },
+        deleteOrder() {
+            axios
+                .delete(this.$route.path + '/' + this.id)
+                .then(() => {
+                    this.$store.dispatch('order_deleted', this.id)
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         },
     },
 }

@@ -54,7 +54,7 @@
                 <div class="min-w-max">
                     <img src="/img/close-primary.svg" class="w-4 h-4" alt="close-filter" />
                 </div>
-                <button class="truncate font-bold cursor-pointer" @click="showAllArticles">Filter entfernen</button>
+                <button class="truncate font-bold cursor-pointer" @click="showAllArticles">Filter zurücksetzen</button>
             </div>
         </div>
         <div class="bg-white rounded-lg shadow-md mx-4">
